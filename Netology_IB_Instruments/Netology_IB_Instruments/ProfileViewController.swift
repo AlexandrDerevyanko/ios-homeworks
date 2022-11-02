@@ -10,7 +10,13 @@ import UIKit
 class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .cyan
+        loadXibFile()
     }
-    
+    func loadXibFile() {
+        if let xibView = Bundle.main.loadNibNamed("ProfileView", owner: nil)?.first as? ProfileView {
+            xibView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            view.addSubview(xibView)
+        }
+    }
 }

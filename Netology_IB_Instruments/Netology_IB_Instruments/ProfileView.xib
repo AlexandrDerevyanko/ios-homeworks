@@ -25,7 +25,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VhG-Fc-aWF">
-                    <rect key="frame" x="220" y="202" width="139" height="21"/>
+                    <rect key="frame" x="218.78609625668446" y="201.99999999999977" width="138.99999999999997" height="21.000000000000057"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemPurpleColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -36,16 +36,16 @@
                     <rect key="frame" x="20" y="47" width="180" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата рождения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jso-M4-y0b">
-                    <rect key="frame" x="220" y="125" width="139" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дата рождения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jso-M4-y0b">
+                    <rect key="frame" x="218.78609625668446" y="125" width="138.99999999999997" height="20.999999999999943"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zjp-Ih-3Fg">
-                    <rect key="frame" x="220" y="47" width="139" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Имя" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-Ih-3Fg">
+                    <rect key="frame" x="218.78609625668446" y="47" width="138.99999999999997" height="21.000000000000057"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -62,7 +62,7 @@
                 <outlet property="SwiftName" destination="Zjp-Ih-3Fg" id="z2D-Vo-sdB"/>
                 <outlet property="SwiftText" destination="MuR-5L-1JA" id="OtS-vk-SjH"/>
             </connections>
-            <point key="canvasLocation" x="36" y="19.95073891625616"/>
+            <point key="canvasLocation" x="140.39408866995075" y="-76"/>
         </view>
     </objects>
     <resources>
