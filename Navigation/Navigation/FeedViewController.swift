@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct Post {
-    var title: String
-}
-
 class FeedViewController: UIViewController {
     
     var dataSource = FeedModel(title: "Some Title", description: "Some description")
