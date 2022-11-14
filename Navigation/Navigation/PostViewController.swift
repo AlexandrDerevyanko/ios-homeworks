@@ -20,6 +20,7 @@ class PostViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     // Загрузка вью
     override func loadView() {
         super.loadView()
@@ -44,21 +45,24 @@ class PostViewController: UIViewController {
         print(#function)
         view.backgroundColor = .cyan
         setupUI()
-        // Do any additional setup after loading the view.
+    }
+    
+    func setupBarButtonItem() {
+        let baritem = UIBarButtonItem(image: UIImage(systemName: "folder"), style: .plain, target: self, action: #selector(tap))
+        self.navigationItem.rightBarButtonItem = baritem
+    }
+    
+    @objc
+    func tap() {
+        let exampleController = InfoViewController()
+        navigationController?.present(exampleController, animated: true)
     }
     
     func setupUI() {
         
         titleLabel.text = source.title
         setupConstraints()
-//        let subView = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 200))
-//
-//        let subBrownView = UIView(frame: CGRect(x: 50, y: 100, width: 70, height: 70))
-//
-//        subBrownView.backgroundColor = .blue
-//        subView.backgroundColor = .red
-//        view.addSubview(subView)
-//        subView.addSubview(subBrownView)
+        setupBarButtonItem()
     }
     
     // срабатывает перед тем как контроллер закроется
@@ -96,6 +100,7 @@ class PostViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+
     }
 
 }
