@@ -68,12 +68,12 @@ class FeedViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        
+//
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
+//
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
