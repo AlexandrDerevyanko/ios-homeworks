@@ -32,6 +32,7 @@ class FeedViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.backgroundColor = .cyan
         button.layer.cornerRadius = 14
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -39,7 +40,6 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupButton()
-        button.frame = CGRect(x: 20, y: 180, width: 100, height: 50)
     }
     
     func setupButton() {
@@ -65,12 +65,10 @@ class FeedViewController: UIViewController {
         view.addSubview(button)
         
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            button.widthAnchor.constraint(equalToConstant: 100),
-//            button.heightAnchor.constraint(equalToConstant: 50),
+            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            button.widthAnchor.constraint(equalToConstant: 100),
+            button.heightAnchor.constraint(equalToConstant: 50),
 
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
