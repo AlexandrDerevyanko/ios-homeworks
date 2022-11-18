@@ -17,19 +17,29 @@ class ProfileHeaderView: UIView {
         return view
     }()
     
-    func setupUI() {
-        animateView()
-//        view.layer.addSublayer(layer)
-//        view.addSubview(uiView)
-//        view.addSubview(blueView)
-//        blueView.frame = CGRect(origin: .zero, size: view.bounds.size)
-    }
+    private let imageView = UIImageView(image: UIImage(named: "corgi")!)
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .lightGray
+//        setupUI()
+//    }
+    
+//    func setupUI() {
+//        imageView.frame = CGRect(x: 100, y: 100, width: 120, height: 100)
+//        view.addSubview(imageView)
+////        animateView()
+////        view.layer.addSublayer(layer)
+////        view.addSubview(uiView)
+////        view.addSubview(blueView)
+////        blueView.frame = CGRect(origin: .zero, size: view.bounds.size)
+//    }
 
-    func animateView() {
-        UIView.animate(withDuration: 2.7) {
-            self.uiView.alpha = 0
-            self.view.setNeedsLayout()
-        }
-    }
+//    func animateView() {
+//        UIView.animate(withDuration: 2.7) {
+//            self.uiView.alpha = 0
+//            self.view.setNeedsLayout()
+//        }
+//    }
     
 }

@@ -12,9 +12,6 @@
 		FFFEF838292359320025FB74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF837292359320025FB74 /* ViewController.swift */; };
 		FFFEF83D292359350025FB74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFFEF83C292359350025FB74 /* Assets.xcassets */; };
 		FFFEF840292359350025FB74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFEF83E292359350025FB74 /* LaunchScreen.storyboard */; };
-		FFFEF84B292359350025FB74 /* Homework_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF84A292359350025FB74 /* Homework_3Tests.swift */; };
-		FFFEF855292359350025FB74 /* Homework_3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF854292359350025FB74 /* Homework_3UITests.swift */; };
-		FFFEF857292359350025FB74 /* Homework_3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF856292359350025FB74 /* Homework_3UITestsLaunchTests.swift */; };
 		FFFEF865292359B20025FB74 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF864292359B20025FB74 /* ProfileViewController.swift */; };
 		FFFEF86729235B090025FB74 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF86629235B090025FB74 /* FeedViewController.swift */; };
 		FFFEF869292363260025FB74 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF868292363260025FB74 /* ProfileHeaderView.swift */; };
@@ -46,10 +43,7 @@
 		FFFEF83F292359350025FB74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFFEF841292359350025FB74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFFEF846292359350025FB74 /* Homework 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFFEF84A292359350025FB74 /* Homework_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework_3Tests.swift; sourceTree = "<group>"; };
 		FFFEF850292359350025FB74 /* Homework 3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework 3UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFFEF854292359350025FB74 /* Homework_3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework_3UITests.swift; sourceTree = "<group>"; };
-		FFFEF856292359350025FB74 /* Homework_3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework_3UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FFFEF864292359B20025FB74 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFFEF86629235B090025FB74 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FFFEF868292363260025FB74 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -84,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				FFFEF832292359320025FB74 /* Homework 3 */,
-				FFFEF849292359350025FB74 /* Homework 3Tests */,
-				FFFEF853292359350025FB74 /* Homework 3UITests */,
 				FFFEF831292359320025FB74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,23 +105,6 @@
 				FFFEF86629235B090025FB74 /* FeedViewController.swift */,
 			);
 			path = "Homework 3";
-			sourceTree = "<group>";
-		};
-		FFFEF849292359350025FB74 /* Homework 3Tests */ = {
-			isa = PBXGroup;
-			children = (
-				FFFEF84A292359350025FB74 /* Homework_3Tests.swift */,
-			);
-			path = "Homework 3Tests";
-			sourceTree = "<group>";
-		};
-		FFFEF853292359350025FB74 /* Homework 3UITests */ = {
-			isa = PBXGroup;
-			children = (
-				FFFEF854292359350025FB74 /* Homework_3UITests.swift */,
-				FFFEF856292359350025FB74 /* Homework_3UITestsLaunchTests.swift */,
-			);
-			path = "Homework 3UITests";
 			sourceTree = "<group>";
 		};
 		FFFEF863292359960025FB74 /* Profile */ = {
@@ -284,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFFEF84B292359350025FB74 /* Homework_3Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFFEF857292359350025FB74 /* Homework_3UITestsLaunchTests.swift in Sources */,
-				FFFEF855292359350025FB74 /* Homework_3UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
