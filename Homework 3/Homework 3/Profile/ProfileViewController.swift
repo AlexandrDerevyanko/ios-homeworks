@@ -12,12 +12,12 @@ class ProfileViewController: UIViewController {
 
     private let myView: UIView = {
         let myView = UIView()
-        myView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         myView.backgroundColor = .blue
+        myView.translatesAutoresizingMaskIntoConstraints = false
         return myView
     }()
     
-    private let imageView = UIImageView(image: UIImage(named: "corgi")!)
+//    private let imageView = UIImageView(image: UIImage(named: "corgi")!)
     
     
 //    private let blueView = UIView()
@@ -43,38 +43,27 @@ class ProfileViewController: UIViewController {
         setupUI()
     }
     
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            myView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            myView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            myView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            myView.heightAnchor.constraint(equalToConstant: 80)
+        ])
+    }
+    
     func setupUI() {
-//        animateView()
-//        view.layer.addSublayer(layer)
-//        imageView.frame = CGRect(x: 100, y: 100, width: 120, height: 100)
-//        view.addSubview(imageView)
-//        view.addSubview(myView)
-//        blueView.frame = CGRect(origin: .zero, size: view.bounds.size)
+        view.addSubview(myView)
+        setupConstraints()
+
     }
+//    var profileHeaderView = ProfileHeaderView()
 //
-//    func animateView() {
-//        UIView.animate(withDuration: 2.7) {
-//            self.uiView.alpha = 0
-//            self.view.setNeedsLayout()
-//        }
+//
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        profileHeaderView.frame = view.frame
 //    }
-//
-//    func rotateViewWithAnimation() {
-//        UIView.animate(withDuration: 2.7) {
-//            self.uiView.transform = self.uiView.transform.rotated(by: .pi - 100)
-//            self.view.setNeedsLayout()
-//        } completion: { _ in
-//            print("Frame - \(self.uiView.frame)")
-//            print("Bounds - \(self.uiView.bounds)")
-//        }
-//    }
-    var profileHeaderView = ProfileHeaderView()
-//
-//
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        profileHeaderView.frame = view.frame
-    }
 
     
 }
