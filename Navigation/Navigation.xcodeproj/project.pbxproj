@@ -12,9 +12,6 @@
 		FFD64C1C2916EC6E0015F6B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C1B2916EC6E0015F6B3 /* ViewController.swift */; };
 		FFD64C212916EC6F0015F6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD64C202916EC6F0015F6B3 /* Assets.xcassets */; };
 		FFD64C242916EC6F0015F6B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFD64C222916EC6F0015F6B3 /* LaunchScreen.storyboard */; };
-		FFD64C2F2916EC6F0015F6B3 /* NavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C2E2916EC6F0015F6B3 /* NavigationTests.swift */; };
-		FFD64C392916EC6F0015F6B3 /* NavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C382916EC6F0015F6B3 /* NavigationUITests.swift */; };
-		FFD64C3B2916EC6F0015F6B3 /* NavigationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C3A2916EC6F0015F6B3 /* NavigationUITestsLaunchTests.swift */; };
 		FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C492917DF090015F6B3 /* FeedViewController.swift */; };
 		FFD64C4C2917DF250015F6B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */; };
 		FFD64C4E291833880015F6B3 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C4D291833880015F6B3 /* FeedModel.swift */; };
@@ -49,10 +46,7 @@
 		FFD64C232916EC6F0015F6B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFD64C252916EC6F0015F6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD64C2A2916EC6F0015F6B3 /* NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFD64C2E2916EC6F0015F6B3 /* NavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTests.swift; sourceTree = "<group>"; };
 		FFD64C342916EC6F0015F6B3 /* NavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFD64C382916EC6F0015F6B3 /* NavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITests.swift; sourceTree = "<group>"; };
-		FFD64C3A2916EC6F0015F6B3 /* NavigationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FFD64C492917DF090015F6B3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFD64C4D291833880015F6B3 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -90,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				FFD64C162916EC6E0015F6B3 /* Navigation */,
-				FFD64C2D2916EC6F0015F6B3 /* NavigationTests */,
-				FFD64C372916EC6F0015F6B3 /* NavigationUITests */,
 				FFD64C152916EC6E0015F6B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,23 +115,6 @@
 				FFFEF825291FCFD80025FB74 /* Post.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		FFD64C2D2916EC6F0015F6B3 /* NavigationTests */ = {
-			isa = PBXGroup;
-			children = (
-				FFD64C2E2916EC6F0015F6B3 /* NavigationTests.swift */,
-			);
-			path = NavigationTests;
-			sourceTree = "<group>";
-		};
-		FFD64C372916EC6F0015F6B3 /* NavigationUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FFD64C382916EC6F0015F6B3 /* NavigationUITests.swift */,
-				FFD64C3A2916EC6F0015F6B3 /* NavigationUITestsLaunchTests.swift */,
-			);
-			path = NavigationUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFD64C2F2916EC6F0015F6B3 /* NavigationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFD64C3B2916EC6F0015F6B3 /* NavigationUITestsLaunchTests.swift in Sources */,
-				FFD64C392916EC6F0015F6B3 /* NavigationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
