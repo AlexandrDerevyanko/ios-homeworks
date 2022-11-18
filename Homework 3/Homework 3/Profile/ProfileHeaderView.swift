@@ -20,9 +20,9 @@ class ProfileHeaderView: UIView {
     func setupUI() {
         animateView()
 //        view.layer.addSublayer(layer)
-        view.addSubview(uiView)
-        view.addSubview(blueView)
-        blueView.frame = CGRect(origin: .zero, size: view.bounds.size)
+//        view.addSubview(uiView)
+//        view.addSubview(blueView)
+//        blueView.frame = CGRect(origin: .zero, size: view.bounds.size)
     }
 
     func animateView() {
