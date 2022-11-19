@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         private func setupUI() {
-            firstTabNavigationController = UINavigationController.init(rootViewController: FeedViewController())
+            firstTabNavigationController = UINavigationController.init(rootViewController: ProfileViewController())
             secondTabNavigationController = UINavigationController.init(rootViewController: ProfileViewController())
             
             self.viewControllers = [firstTabNavigationController, secondTabNavigationController]
@@ -79,7 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 146/255.0, blue: 248/255.0, alpha: 1.0)
 //            UIView.appearance().backgroundColor = .white
             UITabBar.appearance().backgroundColor = .white
-            UINavigationBar.appearance().backgroundColor = .white
+//            UINavigationBar.appearance().backgroundColor = .white
 
         }
     }
