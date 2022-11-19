@@ -9,10 +9,27 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    private let textFiled: UITextField = {
+        let fText = UITextField()
+        fText.borderStyle = .roundedRect
+        fText.contentVerticalAlignment = .center
+        fText.textColor = .black
+        fText.font = UIFont(name: "Arial regular", size: 15)
+        fText.layer.cornerRadius = 12
+        fText.clipsToBounds = true
+        fText.layer.borderColor = UIColor.black.cgColor
+        fText.layer.borderWidth = 1
+        fText.translatesAutoresizingMaskIntoConstraints = false
+        return fText
+    }()
 
     private let myView: UIImageView = {
         let myView = UIImageView()
         myView.image = UIImage(named: "corgi")!
+        myView.layer.cornerRadius = 50
+        myView.clipsToBounds = true
+        myView.layer.borderColor = UIColor.white.cgColor
+        myView.layer.borderWidth = 3
         myView.translatesAutoresizingMaskIntoConstraints = false
         return myView
     }()
@@ -73,16 +90,26 @@ class ProfileViewController: UIViewController {
         view.addSubview(someTitle)
         view.addSubview(button)
         view.addSubview(secondTitle)
+        view.addSubview(textFiled)
+
         addTargets()
         setupConstraints()
     }
     
     func addTargets() {
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        textFiled.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
     }
     
+    private var statusText: String = ""
+    
     @objc func buttonPressed() {
+        secondTitle.text = statusText
         print("\(String(describing: secondTitle.text))!")
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text!
     }
     
     func setupConstraints() {
@@ -105,8 +132,12 @@ class ProfileViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 50),
             
             secondTitle.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -34),
-            secondTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 132)
+            secondTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 132),
             
+            textFiled.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 112),
+            textFiled.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 132),
+            textFiled.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            textFiled.heightAnchor.constraint(equalToConstant: 50)
 
         ])
     }
