@@ -126,18 +126,18 @@ class ProfileViewController: UIViewController {
             someTitle.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 27),
             someTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            button.topAnchor.constraint(equalTo: myView.bottomAnchor, constant: 16),
+            button.topAnchor.constraint(equalTo: myView.bottomAnchor, constant: 40),
             button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             button.heightAnchor.constraint(equalToConstant: 50),
             
-            secondTitle.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -34),
+            secondTitle.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -70),
             secondTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 132),
             
-            textFiled.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 112),
+            textFiled.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -15),
             textFiled.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 132),
             textFiled.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            textFiled.heightAnchor.constraint(equalToConstant: 50)
+            textFiled.heightAnchor.constraint(equalToConstant: 40)
 
         ])
     }
