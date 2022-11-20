@@ -13,6 +13,9 @@
 		FFA4695E2929C88900A0227A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA4695C2929C88900A0227A /* Main.storyboard */; };
 		FFA469602929C88A00A0227A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA4695F2929C88A00A0227A /* Assets.xcassets */; };
 		FFA469632929C88A00A0227A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA469612929C88A00A0227A /* LaunchScreen.storyboard */; };
+		FFA4696B2929CDFF00A0227A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4696A2929CDFF00A0227A /* ProfileViewController.swift */; };
+		FFA4696D2929CE1900A0227A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4696C2929CE1900A0227A /* FeedViewController.swift */; };
+		FFA4696F2929CF1600A0227A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4696E2929CF1600A0227A /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		FFA4695F2929C88A00A0227A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFA469622929C88A00A0227A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFA469642929C88A00A0227A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFA4696A2929CDFF00A0227A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FFA4696C2929CE1900A0227A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		FFA4696E2929CF1600A0227A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				FFA4695F2929C88A00A0227A /* Assets.xcassets */,
 				FFA469612929C88A00A0227A /* LaunchScreen.storyboard */,
 				FFA469642929C88A00A0227A /* Info.plist */,
+				FFA4696A2929CDFF00A0227A /* ProfileViewController.swift */,
+				FFA4696C2929CE1900A0227A /* FeedViewController.swift */,
+				FFA4696E2929CF1600A0227A /* ProfileHeaderView.swift */,
 			);
 			path = "homework 4";
 			sourceTree = "<group>";
@@ -139,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFA4695B2929C88900A0227A /* ViewController.swift in Sources */,
+				FFA4696F2929CF1600A0227A /* ProfileHeaderView.swift in Sources */,
 				FFA469572929C88900A0227A /* AppDelegate.swift in Sources */,
+				FFA4696D2929CE1900A0227A /* FeedViewController.swift in Sources */,
+				FFA4696B2929CDFF00A0227A /* ProfileViewController.swift in Sources */,
 				FFA469592929C88900A0227A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
