@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         private func setupUI() {
-            firstTabNavigationController = UINavigationController.init(rootViewController: ProfileViewController())
+            firstTabNavigationController = UINavigationController.init(rootViewController: FeedViewController())
             secondTabNavigationController = UINavigationController.init(rootViewController: ProfileViewController())
             
             self.viewControllers = [firstTabNavigationController, secondTabNavigationController]

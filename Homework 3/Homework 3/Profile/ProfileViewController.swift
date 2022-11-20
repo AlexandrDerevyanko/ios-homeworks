@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
     
     private let button: UIButton = {
         let button = UIButton()
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .blue
         button.layer.cornerRadius = 4
