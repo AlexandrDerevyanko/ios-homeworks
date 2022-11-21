@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Netology_IB_Instruments
+//  Homework 5
 //
-//  Created by Aleksandr Derevyanko on 01.11.2022.
+//  Created by Aleksandr Derevyanko on 21.11.2022.
 //
 
 import UIKit
