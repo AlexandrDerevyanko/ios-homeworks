@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private let textFiled: UITextField = {
+    private let statusTextField: UITextField = {
             let fText = UITextField()
             fText.borderStyle = .roundedRect
             fText.contentVerticalAlignment = .center
@@ -23,7 +23,7 @@ class ProfileHeaderView: UIView {
             return fText
         }()
 
-        private let myView: UIImageView = {
+        private let avatarImageView: UIImageView = {
             let myView = UIImageView()
             myView.image = UIImage(named: "corgi")!
             myView.layer.cornerRadius = 50
@@ -34,7 +34,7 @@ class ProfileHeaderView: UIView {
             return myView
         }()
         
-        private let someTitle: UILabel = {
+        private let fullNameLabel: UILabel = {
             let label = UILabel()
             label.text = "Corgi"
             label.font = UIFont(name: "Arial Bold", size: 18)
@@ -43,7 +43,7 @@ class ProfileHeaderView: UIView {
             return label
         }()
         
-        private let secondTitle: UILabel = {
+        private let statusLabel: UILabel = {
             let label = UILabel()
             label.text = "Waiting for something"
             label.font = UIFont(name: "Arial regular", size: 14)
@@ -52,7 +52,7 @@ class ProfileHeaderView: UIView {
             return label
         }()
         
-        private let button: UIButton = {
+        private let setStatusButton: UIButton = {
             let button = UIButton()
             button.setTitle("Set status", for: .normal)
             button.setTitleColor(UIColor.white, for: .normal)
@@ -77,55 +77,55 @@ class ProfileHeaderView: UIView {
     }
     
         func setupUI() {
-            addSubview(myView)
-            addSubview(someTitle)
-            addSubview(button)
-            addSubview(secondTitle)
-            addSubview(textFiled)
+            addSubview(setStatusButton)
+            addSubview(statusTextField)
+            addSubview(statusLabel)
+            addSubview(fullNameLabel)
+            addSubview(avatarImageView)
 
             addTargets()
             setupConstraints()
         }
         
         func addTargets() {
-            button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-            textFiled.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+            setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+            statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         }
         
         private var statusText: String = ""
         
         @objc func buttonPressed() {
-            secondTitle.text = statusText
-            print("\(String(describing: secondTitle.text))!")
+            statusLabel.text = statusText
+            print("\(String(describing: statusLabel.text))!")
         }
         
-        @objc func statusTextChanged(_ textField: UITextField) {
-            statusText = textField.text!
+        @objc func statusTextChanged(_ statusTextField: UITextField) {
+            statusText = statusTextField.text!
         }
         
         func setupConstraints() {
             NSLayoutConstraint.activate([
                 
-                myView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-                myView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                myView.heightAnchor.constraint(equalToConstant: 100),
-                myView.widthAnchor.constraint(equalToConstant: 100),
+                avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+                avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+                avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+                avatarImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                someTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-                someTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+                fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+                fullNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 
-                button.topAnchor.constraint(equalTo: myView.bottomAnchor, constant: 80),
-                button.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-                button.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-                button.heightAnchor.constraint(equalToConstant: 50),
+                setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 80),
+                setStatusButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+                setStatusButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+                setStatusButton.heightAnchor.constraint(equalToConstant: 50),
                 
-                secondTitle.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -80),
-                secondTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 132),
+                statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -80),
+                statusLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 132),
 
-                textFiled.topAnchor.constraint(equalTo: myView.bottomAnchor, constant: 20),
-                textFiled.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-                textFiled.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-                textFiled.heightAnchor.constraint(equalToConstant: 40)
+                statusTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 20),
+                statusTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+                statusTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+                statusTextField.heightAnchor.constraint(equalToConstant: 40)
 
             ])
         }

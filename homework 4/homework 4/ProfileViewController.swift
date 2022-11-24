@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+            view.backgroundColor = .lightGray
             profileView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(profileView)
             setupConstraints()
@@ -20,10 +21,11 @@ class ProfileViewController: UIViewController {
 
         func setupConstraints() {
             NSLayoutConstraint.activate([
-                profileView.topAnchor.constraint(equalTo: view.topAnchor),
+                profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//                profileView.heightAnchor.constraint(equalToConstant: 220)
 
             ])
         }
