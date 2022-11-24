@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Netology_IB_Instruments
+//  homework 4
 //
-//  Created by Aleksandr Derevyanko on 01.11.2022.
+//  Created by Aleksandr Derevyanko on 20.11.2022.
 //
 
 import UIKit
@@ -11,12 +11,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var firstTabNavigationController = TabBarController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+                       let window = UIWindow(windowScene: windowScene)
+                       window.rootViewController = firstTabNavigationController
+                       window.makeKeyAndVisible()
+                       self.window = window
+           }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +53,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
-}
+class TabBarController: UITabBarController {
+        
+        var firstTabNavigationController: UINavigationController!
+        var secondTabNavigationController: UINavigationController!
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setupUI()
+        }
+        
+        private func setupUI() {
+            firstTabNavigationController = UINavigationController.init(rootViewController: FeedViewController())
+            secondTabNavigationController = UINavigationController.init(rootViewController: ProfileViewController())
+            
+            self.viewControllers = [firstTabNavigationController, secondTabNavigationController]
+            
+            let item1 = UITabBarItem(title: "Feed",
+                                     image: UIImage(systemName: "homekit"), tag: 0)
+            let item2 = UITabBarItem(title: "Profile",
+                                     image: UIImage(systemName: "square.and.arrow.down.fill"), tag: 1)
+            
+            firstTabNavigationController.tabBarItem = item1
+            secondTabNavigationController.tabBarItem = item2
+            
+            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 146/255.0, blue: 248/255.0, alpha: 1.0)
+            UITabBar.appearance().backgroundColor = .white
+        }
+    }
 

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Netology_IB_Instruments
+//  homework 4
 //
-//  Created by Aleksandr Derevyanko on 01.11.2022.
+//  Created by Aleksandr Derevyanko on 20.11.2022.
 //
 
 import UIKit
