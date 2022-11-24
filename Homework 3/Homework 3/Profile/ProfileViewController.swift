@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
         profileView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileView)
         setupConstraints()
+        
     }
 
     func setupConstraints() {

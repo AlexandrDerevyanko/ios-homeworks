@@ -80,6 +80,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             UITabBar.appearance().backgroundColor = .white
 
+//            UINavigationBar.appearance().backgroundColor = .white
+
+
         }
     }
 
