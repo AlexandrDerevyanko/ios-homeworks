@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         setupConstraints()
         
     }
-
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             profileView.topAnchor.constraint(equalTo: view.topAnchor),

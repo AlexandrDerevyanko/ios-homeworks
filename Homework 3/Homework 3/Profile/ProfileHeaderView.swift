@@ -85,11 +85,6 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//        myView.layer.cornerRadius = myView.frame.size.width
-//        myView.clipsToBounds = true
-//        changeAlpha()
-    
-    
     func setupUI() {
         addSubview(myView)
         addSubview(titleLabel)
