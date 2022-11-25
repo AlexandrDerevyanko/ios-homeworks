@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
         
         private let secondTitle: UILabel = {
             let label = UILabel()
-            label.text = "Waiting for something"
+            label.text = "Hi there"
             label.font = UIFont(name: "Arial regular", size: 14)
             label.textColor = .gray
             label.translatesAutoresizingMaskIntoConstraints = false

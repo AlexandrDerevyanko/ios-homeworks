@@ -37,12 +37,14 @@ class LogInViewController: UIViewController {
         logIn.tag = 0
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
-        logIn.font = UIFont(name: "Email or phone", size: 15)
+        logIn.font = UIFont(name: "SystemFont", size: 16)
         logIn.layer.cornerRadius = 10
         logIn.clipsToBounds = true
+        logIn.autocapitalizationType = .none
         logIn.layer.borderColor = UIColor.lightGray.cgColor
         logIn.layer.borderWidth = 0.5
         logIn.translatesAutoresizingMaskIntoConstraints = false
+        logIn.text = "Email or phone"
         return logIn
         }()
     
@@ -52,7 +54,7 @@ class LogInViewController: UIViewController {
         password.tag = 1
         password.textColor = .black
         password.backgroundColor = .systemGray6
-        password.font = UIFont(name: "Password", size: 15)
+        password.font = UIFont(name: "SystemFont", size: 16)
         password.layer.cornerRadius = 10
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
@@ -60,6 +62,7 @@ class LogInViewController: UIViewController {
         password.layer.borderColor = UIColor.lightGray.cgColor
         password.layer.borderWidth = 0.5
         password.translatesAutoresizingMaskIntoConstraints = false
+        password.text = "Password"
         return password
         }()
     
@@ -67,9 +70,8 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.imageView = UIImage(named: "blue_pixel")
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 4
+        button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
+        button.layer.cornerRadius = 10
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
@@ -87,8 +89,8 @@ class LogInViewController: UIViewController {
         let stackViewConstraints = self.stackViewConstraints()
         let buttonConstraints = self.buttonConstraints()
         NSLayoutConstraint.activate(scrollViewConstraints + stackViewConstraints + logoConstraints + buttonConstraints)
-        
     }
+    
     func setupUI() {
 //        self.view.addSubview(logo)
         self.view.addSubview(scrollView)
@@ -97,8 +99,20 @@ class LogInViewController: UIViewController {
         self.scrollView.addSubview(button)
         self.stackView.addArrangedSubview(logInTextFiled)
         self.stackView.addArrangedSubview(passwordTextFiled)
+        setupButton()
 //        self.stackView.addArrangedSubview(button)
+        
     }
+    
+    func setupButton() {
+            button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
+        }
+        
+        @objc
+        func tapOnBlueButton() {
+            let profileViewController = ProfileViewController()
+            navigationController?.pushViewController(profileViewController, animated: true)
+        }
     
     private func scrollViewConstraints() -> [NSLayoutConstraint] {
         let topAnchor = self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor)
