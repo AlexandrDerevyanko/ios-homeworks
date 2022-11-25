@@ -54,6 +54,7 @@ class TabBarController: UITabBarController {
         let item2 = UITabBarItem(title: "Profile",
                                  image: UIImage(systemName: "square.and.arrow.down.fill"), tag: 1)
         
+        
         firstTabNavigationController.tabBarItem = item1
         secondTabNavigationController.tabBarItem = item2
         

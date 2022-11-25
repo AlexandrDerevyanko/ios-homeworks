@@ -26,7 +26,6 @@ class LogInViewController: UIViewController {
         let view = UIStackView()
         view.axis = .vertical
         view.distribution = .fillEqually
-//        view.spacing = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,13 +37,13 @@ class LogInViewController: UIViewController {
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
         logIn.font = UIFont(name: "SystemFont", size: 16)
+        logIn.placeholder = "Email or phone"
         logIn.layer.cornerRadius = 10
         logIn.clipsToBounds = true
         logIn.autocapitalizationType = .none
         logIn.layer.borderColor = UIColor.lightGray.cgColor
         logIn.layer.borderWidth = 0.5
         logIn.translatesAutoresizingMaskIntoConstraints = false
-        logIn.text = "Email or phone"
         return logIn
         }()
     
@@ -55,6 +54,7 @@ class LogInViewController: UIViewController {
         password.textColor = .black
         password.backgroundColor = .systemGray6
         password.font = UIFont(name: "SystemFont", size: 16)
+        password.placeholder = "Password"
         password.layer.cornerRadius = 10
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
@@ -62,7 +62,6 @@ class LogInViewController: UIViewController {
         password.layer.borderColor = UIColor.lightGray.cgColor
         password.layer.borderWidth = 0.5
         password.translatesAutoresizingMaskIntoConstraints = false
-        password.text = "Password"
         return password
         }()
     
@@ -91,8 +90,17 @@ class LogInViewController: UIViewController {
         NSLayoutConstraint.activate(scrollViewConstraints + stackViewConstraints + logoConstraints + buttonConstraints)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func setupUI() {
-//        self.view.addSubview(logo)
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(stackView)
         self.scrollView.addSubview(logo)
@@ -100,21 +108,20 @@ class LogInViewController: UIViewController {
         self.stackView.addArrangedSubview(logInTextFiled)
         self.stackView.addArrangedSubview(passwordTextFiled)
         setupButton()
-//        self.stackView.addArrangedSubview(button)
-        
+        setupGestures()
     }
     
     func setupButton() {
             button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
         }
-        
-        @objc
-        func tapOnBlueButton() {
-            let profileViewController = ProfileViewController()
-            navigationController?.pushViewController(profileViewController, animated: true)
-        }
+    
+    private func setupGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+    }
     
     private func scrollViewConstraints() -> [NSLayoutConstraint] {
+        
         let topAnchor = self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor)
         let leadingAnchor = self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let trailingAnchor = self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
@@ -123,6 +130,7 @@ class LogInViewController: UIViewController {
     }
     
     private func stackViewConstraints() -> [NSLayoutConstraint] {
+        
         let centerYAnchor = self.stackView.centerYAnchor.constraint(equalTo: self.scrollView.centerYAnchor)
         let leftAnchor = self.stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16)
         let rightAnchor = self.stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
@@ -149,6 +157,34 @@ class LogInViewController: UIViewController {
         let rightAnchor = self.button.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
         return [topAnchor, rightAnchor, heightAnchor, leftAnchor]
         
+    }
+    
+    @objc private func didShowKeyboard(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboeardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboeardRectangle.height
+            
+            let loginButtonBottomPointY = self.button.frame.origin.y + self.button.frame.height
+            let keyboardOriginY = self.view.frame.height - keyboardHeight
+            
+            let yOffset = keyboardOriginY < loginButtonBottomPointY ? loginButtonBottomPointY - keyboardOriginY + 16 : 0
+            
+            self.scrollView.contentOffset = CGPoint(x: 0, y: yOffset)
+        }
+    }
+    
+    @objc private func didHideKeyboard (_ notification: Notification) {
+        self.forcedHidingKeyboard()
+    }
+    
+    @objc func tapOnBlueButton() {
+            let profileViewController = ProfileViewController()
+            navigationController?.pushViewController(profileViewController, animated: true)
+        }
+    
+    @objc private func forcedHidingKeyboard() {
+        self.view.endEditing(true)
+        self.scrollView.setContentOffset(.zero, animated: true)
     }
     
 }
