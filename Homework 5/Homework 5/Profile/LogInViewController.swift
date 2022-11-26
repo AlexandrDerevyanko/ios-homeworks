@@ -36,11 +36,14 @@ class LogInViewController: UIViewController {
         logIn.tag = 0
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
+<<<<<<< HEAD
         logIn.font = UIFont(name: "SystemFont", size: 16)
         logIn.placeholder = "Email or phone"
+=======
+        logIn.font = UIFont(name: "Email or phone", size: 15)
+>>>>>>> parent of 6da4f90... some commit
         logIn.layer.cornerRadius = 10
         logIn.clipsToBounds = true
-        logIn.autocapitalizationType = .none
         logIn.layer.borderColor = UIColor.lightGray.cgColor
         logIn.layer.borderWidth = 0.5
         logIn.translatesAutoresizingMaskIntoConstraints = false
@@ -53,8 +56,12 @@ class LogInViewController: UIViewController {
         password.tag = 1
         password.textColor = .black
         password.backgroundColor = .systemGray6
+<<<<<<< HEAD
         password.font = UIFont(name: "SystemFont", size: 16)
         password.placeholder = "Password"
+=======
+        password.font = UIFont(name: "Password", size: 15)
+>>>>>>> parent of 6da4f90... some commit
         password.layer.cornerRadius = 10
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
@@ -69,8 +76,9 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
-        button.layer.cornerRadius = 10
+        button.imageView = UIImage(named: "blue_pixel")
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 4
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
@@ -88,7 +96,9 @@ class LogInViewController: UIViewController {
         let stackViewConstraints = self.stackViewConstraints()
         let buttonConstraints = self.buttonConstraints()
         NSLayoutConstraint.activate(scrollViewConstraints + stackViewConstraints + logoConstraints + buttonConstraints)
+        
     }
+<<<<<<< HEAD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -100,6 +110,8 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+=======
+>>>>>>> parent of 6da4f90... some commit
     func setupUI() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(stackView)
@@ -107,6 +119,7 @@ class LogInViewController: UIViewController {
         self.scrollView.addSubview(button)
         self.stackView.addArrangedSubview(logInTextFiled)
         self.stackView.addArrangedSubview(passwordTextFiled)
+<<<<<<< HEAD
         setupButton()
         setupGestures()
     }
@@ -120,6 +133,11 @@ class LogInViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+=======
+//        self.stackView.addArrangedSubview(button)
+    }
+    
+>>>>>>> parent of 6da4f90... some commit
     private func scrollViewConstraints() -> [NSLayoutConstraint] {
         
         let topAnchor = self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor)

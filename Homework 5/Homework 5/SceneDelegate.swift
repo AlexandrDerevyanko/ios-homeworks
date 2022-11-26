@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = firstTabNavigationController
         window.makeKeyAndVisible()
         self.window = window
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
