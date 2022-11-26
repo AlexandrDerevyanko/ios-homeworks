@@ -9,12 +9,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-<<<<<<< HEAD
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .cyan
-    }
-=======
     private let textFiled: UITextField = {
             let fText = UITextField()
             fText.borderStyle = .roundedRect
@@ -133,6 +127,6 @@ class ProfileViewController: UIViewController {
 
             ])
         }
->>>>>>> parent of 6da4f90... some commit
+
     
 }

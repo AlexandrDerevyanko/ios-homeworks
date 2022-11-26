@@ -37,8 +37,12 @@ class LogInViewController: UIViewController {
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
 <<<<<<< HEAD
+<<<<<<< HEAD
         logIn.font = UIFont(name: "SystemFont", size: 16)
         logIn.placeholder = "Email or phone"
+=======
+        logIn.font = UIFont(name: "Email or phone", size: 15)
+>>>>>>> parent of 6da4f90... some commit
 =======
         logIn.font = UIFont(name: "Email or phone", size: 15)
 >>>>>>> parent of 6da4f90... some commit
@@ -57,8 +61,12 @@ class LogInViewController: UIViewController {
         password.textColor = .black
         password.backgroundColor = .systemGray6
 <<<<<<< HEAD
+<<<<<<< HEAD
         password.font = UIFont(name: "SystemFont", size: 16)
         password.placeholder = "Password"
+=======
+        password.font = UIFont(name: "Password", size: 15)
+>>>>>>> parent of 6da4f90... some commit
 =======
         password.font = UIFont(name: "Password", size: 15)
 >>>>>>> parent of 6da4f90... some commit
@@ -97,6 +105,7 @@ class LogInViewController: UIViewController {
         let buttonConstraints = self.buttonConstraints()
         NSLayoutConstraint.activate(scrollViewConstraints + stackViewConstraints + logoConstraints + buttonConstraints)
         
+<<<<<<< HEAD
     }
 <<<<<<< HEAD
     
@@ -112,6 +121,9 @@ class LogInViewController: UIViewController {
     
 =======
 >>>>>>> parent of 6da4f90... some commit
+=======
+    }
+>>>>>>> parent of 6da4f90... some commit
     func setupUI() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(stackView)
@@ -119,6 +131,7 @@ class LogInViewController: UIViewController {
         self.scrollView.addSubview(button)
         self.stackView.addArrangedSubview(logInTextFiled)
         self.stackView.addArrangedSubview(passwordTextFiled)
+<<<<<<< HEAD
 <<<<<<< HEAD
         setupButton()
         setupGestures()
@@ -133,6 +146,11 @@ class LogInViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+=======
+//        self.stackView.addArrangedSubview(button)
+    }
+    
+>>>>>>> parent of 6da4f90... some commit
 =======
 //        self.stackView.addArrangedSubview(button)
     }
