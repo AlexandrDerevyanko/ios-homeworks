@@ -14,7 +14,6 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .white
     }
 
-
 }
 
 
