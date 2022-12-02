@@ -26,6 +26,11 @@ class LogInViewController: UIViewController {
         let view = UIStackView()
         view.axis = .vertical
         view.distribution = .fillEqually
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.lightGray.cgColor
+
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,11 +43,8 @@ class LogInViewController: UIViewController {
         logIn.backgroundColor = .systemGray6
         logIn.font = UIFont(name: "SystemFont", size: 16)
         logIn.placeholder = "Email or phone"
-        logIn.layer.cornerRadius = 10
-        logIn.clipsToBounds = true
+
         logIn.autocapitalizationType = .none
-        logIn.layer.borderColor = UIColor.lightGray.cgColor
-        logIn.layer.borderWidth = 0.5
         logIn.translatesAutoresizingMaskIntoConstraints = false
         return logIn
         }()
@@ -55,12 +57,8 @@ class LogInViewController: UIViewController {
         password.backgroundColor = .systemGray6
         password.font = UIFont(name: "SystemFont", size: 16)
         password.placeholder = "Password"
-        password.layer.cornerRadius = 10
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
-        password.clipsToBounds = true
-        password.layer.borderColor = UIColor.lightGray.cgColor
-        password.layer.borderWidth = 0.5
         password.translatesAutoresizingMaskIntoConstraints = false
         return password
         }()
@@ -79,6 +77,10 @@ class LogInViewController: UIViewController {
         return button
     }()
         
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -90,10 +92,6 @@ class LogInViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-        
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
         
     func setupUI() {
@@ -138,9 +136,7 @@ class LogInViewController: UIViewController {
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             button.heightAnchor.constraint(equalToConstant: 50),
             button.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
-            button.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
-            
-            
+            button.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16)
         
         ])
         
