@@ -15,7 +15,11 @@
 		FFD2BB1329363A2300EF3D5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB1229363A2300EF3D5C /* ProfileViewController.swift */; };
 		FFD2BB1529363A3100EF3D5C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB1429363A3100EF3D5C /* LogInViewController.swift */; };
 		FFD2BB1729363CB200EF3D5C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB1629363CB200EF3D5C /* Post.swift */; };
-		FFD2BB19293641B400EF3D5C /* PVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB18293641B400EF3D5C /* PVC.swift */; };
+		FFD2BB1D293B326200EF3D5C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB1C293B326200EF3D5C /* ProfileHeaderView.swift */; };
+		FFD2BB1F293B338700EF3D5C /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB1E293B338700EF3D5C /* ProfileTableHederView.swift */; };
+		FFD2BB21293B36B000EF3D5C /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB20293B36B000EF3D5C /* PostTableViewCell.swift */; };
+		FFD2BB25293B836300EF3D5C /* CustomHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB24293B836300EF3D5C /* CustomHeaderFooterView.swift */; };
+		FFD2BB27293B840000EF3D5C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB26293B840000EF3D5C /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +33,11 @@
 		FFD2BB1229363A2300EF3D5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFD2BB1429363A3100EF3D5C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FFD2BB1629363CB200EF3D5C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		FFD2BB18293641B400EF3D5C /* PVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVC.swift; sourceTree = "<group>"; };
+		FFD2BB1C293B326200EF3D5C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		FFD2BB1E293B338700EF3D5C /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
+		FFD2BB20293B36B000EF3D5C /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		FFD2BB24293B836300EF3D5C /* CustomHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderFooterView.swift; sourceTree = "<group>"; };
+		FFD2BB26293B840000EF3D5C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +73,15 @@
 				FFD2BB11293639E600EF3D5C /* Profile */,
 				FFD2BAFB2936398D00EF3D5C /* AppDelegate.swift */,
 				FFD2BAFD2936398D00EF3D5C /* SceneDelegate.swift */,
+				FFD2BB1429363A3100EF3D5C /* LogInViewController.swift */,
 				FFD2BB0F293639CD00EF3D5C /* FeedViewController.swift */,
 				FFD2BB1629363CB200EF3D5C /* Post.swift */,
+				FFD2BB1E293B338700EF3D5C /* ProfileTableHederView.swift */,
 				FFD2BB042936398E00EF3D5C /* Assets.xcassets */,
 				FFD2BB062936398E00EF3D5C /* LaunchScreen.storyboard */,
 				FFD2BB092936398E00EF3D5C /* Info.plist */,
-				FFD2BB18293641B400EF3D5C /* PVC.swift */,
+				FFD2BB24293B836300EF3D5C /* CustomHeaderFooterView.swift */,
+				FFD2BB26293B840000EF3D5C /* CustomTableViewCell.swift */,
 			);
 			path = "Homework 6";
 			sourceTree = "<group>";
@@ -79,7 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				FFD2BB1229363A2300EF3D5C /* ProfileViewController.swift */,
-				FFD2BB1429363A3100EF3D5C /* LogInViewController.swift */,
+				FFD2BB1C293B326200EF3D5C /* ProfileHeaderView.swift */,
+				FFD2BB20293B36B000EF3D5C /* PostTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -155,12 +167,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD2BAFC2936398D00EF3D5C /* AppDelegate.swift in Sources */,
+				FFD2BB25293B836300EF3D5C /* CustomHeaderFooterView.swift in Sources */,
+				FFD2BB27293B840000EF3D5C /* CustomTableViewCell.swift in Sources */,
 				FFD2BB10293639CD00EF3D5C /* FeedViewController.swift in Sources */,
+				FFD2BB1F293B338700EF3D5C /* ProfileTableHederView.swift in Sources */,
 				FFD2BB1329363A2300EF3D5C /* ProfileViewController.swift in Sources */,
-				FFD2BB19293641B400EF3D5C /* PVC.swift in Sources */,
 				FFD2BB1729363CB200EF3D5C /* Post.swift in Sources */,
+				FFD2BB1D293B326200EF3D5C /* ProfileHeaderView.swift in Sources */,
 				FFD2BB1529363A3100EF3D5C /* LogInViewController.swift in Sources */,
 				FFD2BAFE2936398D00EF3D5C /* SceneDelegate.swift in Sources */,
+				FFD2BB21293B36B000EF3D5C /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
