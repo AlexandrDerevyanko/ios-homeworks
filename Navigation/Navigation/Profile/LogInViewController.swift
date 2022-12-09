@@ -1,13 +1,20 @@
 //
-//  LoginViewController.swift
-//  Homework 5
+//  LogInViewController.swift
+//  Navigation
 //
-//  Created by Aleksandr Derevyanko on 21.11.2022.
+//  Created by Aleksandr Derevyanko on 09.12.2022.
 //
 
 import UIKit
 
 class LogInViewController: UIViewController {
+    
+    private let point: UIView = {
+        let point = UIView()
+        point.backgroundColor = .lightGray
+        point.translatesAutoresizingMaskIntoConstraints = false
+        return point
+    }()
     
     private let logo: UIImageView = {
         let myView = UIImageView()
@@ -25,25 +32,22 @@ class LogInViewController: UIViewController {
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.distribution = .fillEqually
+//        view.distribution = .fillEqually
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.layer.borderWidth = 0.5
         view.layer.borderColor = UIColor.lightGray.cgColor
-
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
         
     private let logInTextFiled: UITextField = {
         let logIn = UITextField()
-        logIn.borderStyle = .roundedRect
         logIn.tag = 0
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
         logIn.font = UIFont(name: "SystemFont", size: 16)
         logIn.placeholder = "Email or phone"
-
         logIn.autocapitalizationType = .none
         logIn.translatesAutoresizingMaskIntoConstraints = false
         return logIn
@@ -51,7 +55,6 @@ class LogInViewController: UIViewController {
         
     private let passwordTextFiled: UITextField = {
         let password = UITextField()
-        password.borderStyle = .roundedRect
         password.tag = 1
         password.textColor = .black
         password.backgroundColor = .systemGray6
@@ -94,18 +97,19 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
         
-    func setupUI() {
+    private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         scrollView.addSubview(logo)
         scrollView.addSubview(button)
         stackView.addArrangedSubview(logInTextFiled)
+        stackView.addArrangedSubview(point)
         stackView.addArrangedSubview(passwordTextFiled)
         setupButton()
         setupGestures()
     }
         
-    func setupButton() {
+    private func setupButton() {
             button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
         }
         
@@ -128,10 +132,17 @@ class LogInViewController: UIViewController {
             logo.widthAnchor.constraint(equalToConstant: 100),
             
             stackView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 120),
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 100),
+            
+            logInTextFiled.heightAnchor.constraint(equalToConstant: 49),
+            
+            passwordTextFiled.heightAnchor.constraint(equalToConstant: 49),
+            
+            point.heightAnchor.constraint(equalToConstant: 0.45),
+            point.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            point.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             button.heightAnchor.constraint(equalToConstant: 50),
@@ -160,7 +171,7 @@ class LogInViewController: UIViewController {
         self.forcedHidingKeyboard()
     }
         
-    @objc func tapOnBlueButton() {
+    @objc private func tapOnBlueButton() {
             let profileViewController = ProfileViewController()
             navigationController?.pushViewController(profileViewController, animated: true)
         }
@@ -168,27 +179,6 @@ class LogInViewController: UIViewController {
     @objc private func forcedHidingKeyboard() {
         self.view.endEditing(true)
         self.scrollView.setContentOffset(.zero, animated: true)
-    }
-    
-    class CustomButton: UIButton {
-        override var isHighlighted: Bool {
-            didSet {
-                if (isHighlighted) {
-                    alpha = 0.8
-                } else {
-                    alpha = 1
-                }
-            }
-        }
-        override var isSelected: Bool {
-            didSet {
-                if (isSelected) {
-                    alpha = 0.8
-                } else {
-                    alpha = 1
-                }
-            }
-        }
     }
     
 }
