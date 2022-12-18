@@ -1,12 +1,18 @@
+//
+//  File.swift
+//  Navigation
+//
+//  Created by Aleksandr Derevyanko on 12.12.2022.
+//
 
 import UIKit
 
 class CustomHeaderFooterView: UITableViewHeaderFooterView {
-
+    
     struct ViewModel {
         let text: String
     }
-
+    
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = .black
@@ -14,25 +20,25 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
-
+    
 //    private lazy var switcher: UISwitch = {
 //        let switcher = UISwitch()
 //        return switcher
 //    }()
-
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         self.setupView()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func setup(with viewModel: ViewModel) {
         self.titleLabel.text = viewModel.text
     }
-
+    
     private func setupView() {
         self.addSubview(self.titleLabel)
         

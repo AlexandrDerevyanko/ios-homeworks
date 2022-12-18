@@ -1,15 +1,14 @@
 //
 //  AppDelegate.swift
-//  Homework 6
+//  Navigation
 //
-//  Created by Aleksandr Derevyanko on 29.11.2022.
+//  Created by Aleksandr Derevyanko on 06.11.2022.
 //
 
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -54,12 +53,12 @@ class TabBarController: UITabBarController {
         let item2 = UITabBarItem(title: "Profile",
                                  image: UIImage(systemName: "square.and.arrow.down.fill"), tag: 1)
         
-        
         firstTabNavigationController.tabBarItem = item1
         secondTabNavigationController.tabBarItem = item2
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 146/255.0, blue: 248/255.0, alpha: 1.0)
         UITabBar.appearance().backgroundColor = .systemGray6
+        
         secondTabNavigationController.isNavigationBarHidden = true
         
     }
