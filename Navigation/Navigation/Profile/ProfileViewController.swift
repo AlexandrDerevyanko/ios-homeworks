@@ -5,44 +5,19 @@ class ProfileViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.backgroundColor = .black
-//        tableView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 50, right: 10)
+        tableView.backgroundColor = .systemBackground
         tableView.dataSource = self
-        tableView.contentMode = .scaleAspectFit
-//        tableView.tableHeaderView = ProfileHeaderView()
         tableView.delegate = self
-////        tableView.tableHeaderView = self.a
-//        // Высоты ячеек одинаковые. Расчета нет.
-////        tableView.rowHeight = 92
-//        // Высоты ячеек могут быть различны/одинаковы, но испольуем Auto Layout. Расчет динамический.
         tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 44
-//        tableView.register(CustomHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
+        tableView.estimatedRowHeight = 200
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "CustomCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-//    private lazy var button: UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = .systemYellow
-//        button.layer.cornerRadius = 16
-//        button.clipsToBounds = true
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-    
-//    private var viewModel: [Post2] = []
-//
-//    struct A {
-//        let post: Post2
-//        let height: CGFloat
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBar()
         self.setupView()
     }
     
@@ -57,17 +32,6 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-//        self.viewModel = [
-//            Post2(), Post2(), Post2(), Post2(), Post2()
-//        ]
-//        self.tableView.reloadData()
-        
-    }
-    
-    private func setupNavigationBar() {
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.title = "Лента"
     }
     
     private func setupView() {
@@ -87,25 +51,6 @@ class ProfileViewController: UIViewController {
 
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
-    
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if section == 0 {
-//
-//            guard let headerView = ProfileHeaderView() as? ProfileHeaderView else { return nil }
-//
-//            return headerView
-//
-//        }
-//
-//        return nil
-//    }
-    
-
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
@@ -129,42 +74,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         
-//        let post = arrayOfPublications[indexPath.row]
-        let arrayOfPublications = PostTableViewCell.ViewModel(author: arrayOfPublications[indexPath.row].author, description: arrayOfPublications[indexPath.row].description, image: UIImage(named: arrayOfPublications[indexPath.row].image), likes: arrayOfPublications[indexPath.row].likes, views: arrayOfPublications[indexPath.row].views)
+        let post = arrayOfPublications[indexPath.row]
+        let arrayOfPublications = PostTableViewCell.ViewModel(author: post.author, description: post.description, image: UIImage(named: post.image), likes: post.likes, views: post.views)
         
         cell.setup(with: arrayOfPublications)
     
         return cell
         
     }
-
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.tableView.deselectRow(at: indexPath, animated: true)
-//
-//        let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell
-//        cell?.changeText("Hello, World!")
-//    }
-    
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let action = UIContextualAction(style: .normal, title: "Переслать") { _, _, _ in
-//
-//        }
-//        action.backgroundColor = .systemBlue
-//
-//        let configuration = UISwipeActionsConfiguration(actions: [action])
-//        return configuration
-//    }
-    
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let action = UIContextualAction(style: .destructive, title: "Удалить") { _, _, _ in
-//            self.viewModel.remove(at: indexPath.row)
-//            self.tableView.deleteRows(at: [indexPath], with: .left)
-//        }
-//        let smthAction = UIContextualAction(style: .normal, title: "Еще какой-то экшн") { _, _, _ in
-//        }
-//
-//        let configuration = UISwipeActionsConfiguration(actions: [action, smthAction])
-//        return configuration
-//    }
     
 }

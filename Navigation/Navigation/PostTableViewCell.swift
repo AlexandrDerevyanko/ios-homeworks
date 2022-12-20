@@ -1,9 +1,3 @@
-//
-//  PostTableViewCell.swift
-//  Navigation
-//
-//  Created by Aleksandr Derevyanko on 19.12.2022.
-//
 
 import UIKit
 
@@ -20,6 +14,7 @@ class PostTableViewCell: UITableViewCell {
     private let images: UIImageView = {
         let images = UIImageView()
         images.contentMode = .scaleAspectFill
+        images.backgroundColor = .black
         images.translatesAutoresizingMaskIntoConstraints = false
         return images
     }()
