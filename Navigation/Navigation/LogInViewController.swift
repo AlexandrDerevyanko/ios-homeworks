@@ -35,8 +35,8 @@ class LogInViewController: UIViewController {
         return view
     }()
         
-    private let logInTextFiled: UITextField = {
-        let logIn = UITextField()
+    private let logInTextFiled: TextFieldWithPadding = {
+        let logIn = TextFieldWithPadding()
         logIn.tag = 0
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
@@ -47,8 +47,8 @@ class LogInViewController: UIViewController {
         return logIn
         }()
         
-    private let passwordTextFiled: UITextField = {
-        let password = UITextField()
+    private let passwordTextFiled: TextFieldWithPadding = {
+        let password = TextFieldWithPadding()
         password.tag = 1
         password.textColor = .black
         password.backgroundColor = .systemGray6

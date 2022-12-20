@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F41D29471712009C1461 /* ProfileTableHederView.swift */; };
-		FF31F420294721B6009C1461 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F41F294721B6009C1461 /* CustomTableViewCell.swift */; };
-		FF31F4222947257C009C1461 /* CustomHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F4212947257C009C1461 /* CustomHeaderFooterView.swift */; };
-		FFD2BB2A29408ED100EF3D5C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2929408ED100EF3D5C /* ProfileHeaderView.swift */; };
+		FF31F420294721B6009C1461 /* !CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F41F294721B6009C1461 /* !CustomTableViewCell.swift */; };
+		FF31F4222947257C009C1461 /* !CustomHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F4212947257C009C1461 /* !CustomHeaderFooterView.swift */; };
+		FF8FEDF32950679300D37BB9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */; };
 		FFD2BB2C2943450A00EF3D5C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */; };
 		FFD2BB2E29436EDD00EF3D5C /* CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */; };
 		FFD64C182916EC6E0015F6B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C172916EC6E0015F6B3 /* AppDelegate.swift */; };
@@ -45,9 +45,9 @@
 
 /* Begin PBXFileReference section */
 		FF31F41D29471712009C1461 /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
-		FF31F41F294721B6009C1461 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		FF31F4212947257C009C1461 /* CustomHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderFooterView.swift; sourceTree = "<group>"; };
-		FFD2BB2929408ED100EF3D5C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		FF31F41F294721B6009C1461 /* !CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "!CustomTableViewCell.swift"; sourceTree = "<group>"; };
+		FF31F4212947257C009C1461 /* !CustomHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "!CustomHeaderFooterView.swift"; sourceTree = "<group>"; };
+		FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClasses.swift; sourceTree = "<group>"; };
 		FFD64C142916EC6E0015F6B3 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				FF31F41D29471712009C1461 /* ProfileTableHederView.swift */,
-				FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */,
-				FFD2BB2929408ED100EF3D5C /* ProfileHeaderView.swift */,
 				FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -128,14 +126,16 @@
 				FFD64C172916EC6E0015F6B3 /* AppDelegate.swift */,
 				FFD64C192916EC6E0015F6B3 /* SceneDelegate.swift */,
 				FFD64C1B2916EC6E0015F6B3 /* ViewController.swift */,
-				FFD64C492917DF090015F6B3 /* FeedViewController.swift */,
 				FFD64C4D291833880015F6B3 /* FeedModel.swift */,
 				FFD64C512918C81B0015F6B3 /* PostViewController.swift */,
 				FFFEF823291FC00D0025FB74 /* InfoViewController.swift */,
 				FFFEF825291FCFD80025FB74 /* Post.swift */,
 				FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */,
-				FF31F41F294721B6009C1461 /* CustomTableViewCell.swift */,
-				FF31F4212947257C009C1461 /* CustomHeaderFooterView.swift */,
+				FF31F41F294721B6009C1461 /* !CustomTableViewCell.swift */,
+				FF31F4212947257C009C1461 /* !CustomHeaderFooterView.swift */,
+				FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */,
+				FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */,
+				FFD64C492917DF090015F6B3 /* FeedViewController.swift */,
 				FFD64C202916EC6F0015F6B3 /* Assets.xcassets */,
 				FFD64C222916EC6F0015F6B3 /* LaunchScreen.storyboard */,
 				FFD64C252916EC6F0015F6B3 /* Info.plist */,
@@ -283,9 +283,9 @@
 				FFD64C4E291833880015F6B3 /* FeedModel.swift in Sources */,
 				FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */,
 				FFFEF826291FCFD80025FB74 /* Post.swift in Sources */,
-				FF31F4222947257C009C1461 /* CustomHeaderFooterView.swift in Sources */,
-				FF31F420294721B6009C1461 /* CustomTableViewCell.swift in Sources */,
-				FFD2BB2A29408ED100EF3D5C /* ProfileHeaderView.swift in Sources */,
+				FF31F4222947257C009C1461 /* !CustomHeaderFooterView.swift in Sources */,
+				FF8FEDF32950679300D37BB9 /* PostTableViewCell.swift in Sources */,
+				FF31F420294721B6009C1461 /* !CustomTableViewCell.swift in Sources */,
 				FFFEF824291FC00D0025FB74 /* InfoViewController.swift in Sources */,
 				FFD64C1A2916EC6E0015F6B3 /* SceneDelegate.swift in Sources */,
 			);
