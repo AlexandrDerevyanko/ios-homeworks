@@ -13,7 +13,6 @@ class PostTableViewCell: UITableViewCell {
     
     private let images: UIImageView = {
         let images = UIImageView()
-        images.contentMode = .scaleAspectFill
         images.backgroundColor = .black
         images.translatesAutoresizingMaskIntoConstraints = false
         return images
@@ -85,7 +84,9 @@ class PostTableViewCell: UITableViewCell {
             authors.bottomAnchor.constraint(equalTo: images.topAnchor, constant: -16),
             
             images.topAnchor.constraint(equalTo: authors.bottomAnchor, constant: 16),
-            images.bottomAnchor.constraint(equalTo: descriptions.topAnchor, constant: -16),
+            images.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            images.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            images.heightAnchor.constraint(equalTo: images.widthAnchor, multiplier: 1.0),
 
             descriptions.topAnchor.constraint(equalTo: images.bottomAnchor, constant: 16),
             descriptions.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
