@@ -34,6 +34,11 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
@@ -81,6 +86,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
