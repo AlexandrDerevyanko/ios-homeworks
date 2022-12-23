@@ -8,8 +8,9 @@ class ProfileViewController: UIViewController {
         tableView.backgroundColor = .systemBackground
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
+//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 92
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "CustomCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
