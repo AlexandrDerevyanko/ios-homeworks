@@ -52,21 +52,21 @@ class PostTableViewCell: UITableViewCell {
         return views
     }()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setup (with viewModel: ViewModel) {
         images.image = viewModel.image
         authors.text = viewModel.author
         descriptions.text = viewModel.description
         likes.text = "Likes: \(viewModel.likes)"
         views.text = "Views: \(viewModel.views)"
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func prepareForReuse() {
@@ -79,41 +79,37 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        contentView.addSubview(images)
-        contentView.addSubview(authors)
-        contentView.addSubview(descriptions)
-        contentView.addSubview(likes)
-        contentView.addSubview(views)
+        addSubview(images)
+        addSubview(authors)
+        addSubview(descriptions)
+        addSubview(likes)
+        addSubview(views)
         
         NSLayoutConstraint.activate([
             
-            authors.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            authors.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            authors.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            authors.bottomAnchor.constraint(equalTo: images.topAnchor, constant: -16),
+            authors.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            authors.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            authors.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             authors.heightAnchor.constraint(equalToConstant: 30),
-            
+
             images.topAnchor.constraint(equalTo: authors.bottomAnchor, constant: 16),
             images.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             images.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             images.heightAnchor.constraint(equalTo: images.widthAnchor, multiplier: 1),
-//            images.bottomAnchor.constraint(equalTo: descriptions.topAnchor, constant: -16),
 
             descriptions.topAnchor.constraint(equalTo: images.bottomAnchor, constant: 16),
-            descriptions.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            descriptions.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-//            descriptions.bottomAnchor.constraint(equalTo: likes.topAnchor, constant: -16),
-            
+            descriptions.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            descriptions.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+
             likes.topAnchor.constraint(equalTo: descriptions.bottomAnchor, constant: 16),
-            likes.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            likes.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            
+            likes.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            likes.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+
             views.topAnchor.constraint(equalTo: descriptions.bottomAnchor, constant: 16),
-            views.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            views.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-
-
+            views.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            views.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
+        
     }
     
 }
