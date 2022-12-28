@@ -31,7 +31,7 @@ class FeedViewController: UIViewController {
     
     private let secondButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Profile", for: .normal)
+        button.setTitle("Photos", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.backgroundColor = .cyan
         button.layer.cornerRadius = 12
@@ -71,12 +71,16 @@ class FeedViewController: UIViewController {
     }
     
     private func setupButton() {
-        firstButton.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
-        secondButton.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(tapOnFirstButton), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(tapOnSecondButton), for: .touchUpInside)
     }
     
-    @objc private func tapOnBlueButton() {
+    @objc private func tapOnFirstButton() {
         let exampleController = ProfileViewController()
+        navigationController?.pushViewController(exampleController, animated: true)
+    }
+    @objc private func tapOnSecondButton() {
+        let exampleController = PhotosViewController()
         navigationController?.pushViewController(exampleController, animated: true)
     }
     

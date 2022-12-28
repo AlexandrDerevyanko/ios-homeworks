@@ -28,3 +28,6 @@ struct SecondPost {
 }
 
 var sec = SecondPost(title: "2")
+
+
+var data: [UIImage?] = [ UIImage(named: "collection1"), UIImage(named: "collection2"), UIImage(named: "collection3"), UIImage(named: "collection4"), UIImage(named: "collection5"), UIImage(named: "collection6"), UIImage(named: "collection7"), UIImage(named: "collection8"), UIImage(named: "collection9"), UIImage(named: "collection10"), UIImage(named: "collection11"), UIImage(named: "collection12"), UIImage(named: "collection13"), UIImage(named: "collection14"), UIImage(named: "collection15"), UIImage(named: "collection16"), UIImage(named: "collection17"), UIImage(named: "collection18"), UIImage(named: "collection19"), UIImage(named: "collection20"),]
