@@ -23,7 +23,7 @@ class ProfileHeaderView: UIView {
         return fText
     }()
 
-    private let avatarImageView: UIImageView = {
+    let avatarImageView: UIImageView = {
         let myView = UIImageView()
         myView.image = UIImage(named: "corgi")!
         myView.layer.cornerRadius = 50
@@ -65,6 +65,10 @@ class ProfileHeaderView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    var avatarImageViewWidthConstaint: NSLayoutConstraint?
+    var avatarImageViewHeightConstaint: NSLayoutConstraint?
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,13 +108,17 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupConstraints() {
+        
+        self.avatarImageViewWidthConstaint = self.avatarImageView.widthAnchor.constraint(equalToConstant: 100)
+        self.avatarImageViewHeightConstaint = self.avatarImageView.heightAnchor.constraint(equalToConstant: 100)
+        
+        
         NSLayoutConstraint.activate([
             
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-            
+            self.avatarImageViewWidthConstaint,
+            self.avatarImageViewHeightConstaint,
             fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
             fullNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
@@ -129,7 +137,8 @@ class ProfileHeaderView: UIView {
             statusTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             statusTextField.heightAnchor.constraint(equalToConstant: 40)
 
-        ])
+        ].compactMap({ $0 })
+        )
     }
     
 }
