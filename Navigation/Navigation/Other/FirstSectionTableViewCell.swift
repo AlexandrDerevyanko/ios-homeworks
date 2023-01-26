@@ -97,5 +97,12 @@ extension FirstSectionTableViewCell: UICollectionViewDataSource, UICollectionVie
         return 8
 
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
 
 }

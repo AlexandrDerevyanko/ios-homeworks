@@ -98,13 +98,13 @@ class ProfileHeaderView: UIView {
     
     private var statusText: String = ""
     
+    @objc private func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text!
+    }
+    
     @objc private func buttonPressed() {
         statusLabel.text = statusText
         print("\(String(describing: statusLabel.text))!")
-    }
-    
-    @objc private func statusTextChanged(_ textField: UITextField) {
-        statusText = textField.text!
     }
     
     private func setupConstraints() {
