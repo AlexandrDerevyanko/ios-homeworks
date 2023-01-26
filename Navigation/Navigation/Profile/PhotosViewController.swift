@@ -16,10 +16,7 @@ class PhotosViewController: UIViewController {
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-//        layout.minimumInteritemSpacing = 100
-//        layout.minimumLineSpacing = 100
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-//        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - 16, height: 100)
         return layout
     }()
     

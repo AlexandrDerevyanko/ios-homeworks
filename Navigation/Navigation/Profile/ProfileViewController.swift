@@ -8,9 +8,7 @@ class ProfileViewController: UIViewController {
         tableView.backgroundColor = .systemBackground
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 92
         tableView.register(FirstSectionTableViewCell.self, forCellReuseIdentifier: "FirstSectionCell")
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "SecondSectionCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
@@ -128,10 +126,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        tableView.deselectRow(at: indexPath, animated: true)
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return tableView.frame.width / 4
+        }
+        if indexPath.section == 1 {
+            return UITableView.automaticDimension
+        }
+        return UITableView.automaticDimension
     }
     
 }

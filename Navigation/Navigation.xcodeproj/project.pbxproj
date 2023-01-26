@@ -114,7 +114,6 @@
 				FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */,
 				FFD64C512918C81B0015F6B3 /* PostViewController.swift */,
 				FFFEF825291FCFD80025FB74 /* Post.swift */,
-				FF1D2B5629584C2500D0E676 /* FirstSectionTableViewCell.swift */,
 				FF1D2B5E295AE37A00D0E676 /* UIView.swift */,
 				FF1D2B62295AFC8600D0E676 /* SecondTableViewCell.swift */,
 			);
@@ -148,6 +147,7 @@
 				FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */,
 				FF1D2B5829584E7000D0E676 /* PhotosViewController.swift */,
 				FF1D2B5A29584F6800D0E676 /* PhotosCollectionViewCell.swift */,
+				FF1D2B5629584C2500D0E676 /* FirstSectionTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
