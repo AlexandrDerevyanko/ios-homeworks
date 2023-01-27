@@ -1,5 +1,6 @@
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupGestures()
+        view.backgroundColor = .cyan
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +45,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .systemBackground
+//        view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
                    
@@ -96,9 +98,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let post = arrayOfPublications[indexPath.row]
-        let arrayOfPublications = PostTableViewCell.ViewModel(author: post.author, description: post.description, image: UIImage(named: post.image), likes: post.likes, views: post.views)
-        
-        cell.setup(with: arrayOfPublications)
+        let publications = PostTableViewCell.ViewModel(author: post.author, description: post.description, image: UIImage(named: post.image), likes: post.likes, views: post.views)
+
+        cell.setup(with: publications)
     
         return cell
         

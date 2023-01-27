@@ -70,6 +70,9 @@ class ProfileHeaderView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         setupUI()
+        #if DEBUG
+        backgroundColor = .cyan
+        #endif
     }
     
     required init?(coder: NSCoder) {

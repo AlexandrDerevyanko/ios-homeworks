@@ -11,14 +11,14 @@ class PostTableViewCell: UITableViewCell {
         var views: Int
     }
     
-    private let images: UIImageView = {
+    let images: UIImageView = {
         let images = UIImageView()
         images.backgroundColor = .black
         images.translatesAutoresizingMaskIntoConstraints = false
         return images
     }()
     
-    private let authors: UILabel = {
+    let authors: UILabel = {
         let authors = UILabel()
         authors.font = UIFont(name: "Arial Bold", size: 20)
         authors.textColor = .black
@@ -27,7 +27,7 @@ class PostTableViewCell: UITableViewCell {
         return authors
     }()
     
-    private let descriptions: UILabel = {
+    let descriptions: UILabel = {
         let descriptions = UILabel()
         descriptions.font = UIFont(name: "Arial normal", size: 14)
         descriptions.textColor = .systemGray
@@ -36,7 +36,7 @@ class PostTableViewCell: UITableViewCell {
         return descriptions
     }()
     
-    private let likes: UILabel = {
+    let likes: UILabel = {
         let likes = UILabel()
         likes.font = UIFont(name: "Arial normal", size: 16)
         likes.textColor = .black
@@ -44,7 +44,7 @@ class PostTableViewCell: UITableViewCell {
         return likes
     }()
     
-    private let views: UILabel = {
+    let views: UILabel = {
         let views = UILabel()
         views.font = UIFont(name: "Arial normal", size: 16)
         views.textColor = .black
@@ -55,6 +55,9 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
+        #if DEBUG
+        backgroundColor = .cyan
+        #endif
     }
     
     required init?(coder: NSCoder) {
@@ -78,7 +81,7 @@ class PostTableViewCell: UITableViewCell {
         views.text = nil
     }
     
-    private func setupView() {
+    func setupView() {
         addSubview(images)
         addSubview(authors)
         addSubview(descriptions)

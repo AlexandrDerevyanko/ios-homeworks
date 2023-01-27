@@ -46,3 +46,9 @@ class TextFieldWithPadding: UITextField {
         return rect.inset(by: textPadding)
     }
 }
+
+public struct SecondPost {
+    var title: String
+}
+
+public var sec = SecondPost(title: "2")
