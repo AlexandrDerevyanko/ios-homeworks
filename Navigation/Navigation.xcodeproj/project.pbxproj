@@ -10,7 +10,7 @@
 		FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F41D29471712009C1461 /* ProfileTableHederView.swift */; };
 		FF8FEDF32950679300D37BB9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */; };
 		FFD2BB2C2943450A00EF3D5C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */; };
-		FFD2BB2E29436EDD00EF3D5C /* CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */; };
+		FFD2BB2E29436EDD00EF3D5C /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2BB2D29436EDD00EF3D5C /* Custom.swift */; };
 		FFD64C182916EC6E0015F6B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C172916EC6E0015F6B3 /* AppDelegate.swift */; };
 		FFD64C1A2916EC6E0015F6B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C192916EC6E0015F6B3 /* SceneDelegate.swift */; };
 		FFD64C1C2916EC6E0015F6B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD64C1B2916EC6E0015F6B3 /* ViewController.swift */; };
@@ -24,28 +24,11 @@
 		FFFEF826291FCFD80025FB74 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF825291FCFD80025FB74 /* Post.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FFD64C2B2916EC6F0015F6B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FFD64C0C2916EC6E0015F6B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FFD64C132916EC6E0015F6B3;
-			remoteInfo = Navigation;
-		};
-		FFD64C352916EC6F0015F6B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FFD64C0C2916EC6E0015F6B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FFD64C132916EC6E0015F6B3;
-			remoteInfo = Navigation;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FF31F41D29471712009C1461 /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
 		FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClasses.swift; sourceTree = "<group>"; };
+		FFD2BB2D29436EDD00EF3D5C /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		FFD64C142916EC6E0015F6B3 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD64C172916EC6E0015F6B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFD64C192916EC6E0015F6B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +36,6 @@
 		FFD64C202916EC6F0015F6B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFD64C232916EC6F0015F6B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFD64C252916EC6F0015F6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFD64C2A2916EC6F0015F6B3 /* NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFD64C342916EC6F0015F6B3 /* NavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD64C492917DF090015F6B3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFD64C4D291833880015F6B3 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -65,20 +46,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		FFD64C112916EC6E0015F6B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD64C272916EC6F0015F6B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD64C312916EC6F0015F6B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -101,7 +68,7 @@
 			children = (
 				FFFEF823291FC00D0025FB74 /* InfoViewController.swift */,
 				FFD64C4D291833880015F6B3 /* FeedModel.swift */,
-				FFD2BB2D29436EDD00EF3D5C /* CustomClasses.swift */,
+				FFD2BB2D29436EDD00EF3D5C /* Custom.swift */,
 				FFD64C512918C81B0015F6B3 /* PostViewController.swift */,
 				FFFEF825291FCFD80025FB74 /* Post.swift */,
 			);
@@ -149,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				FFD64C142916EC6E0015F6B3 /* Navigation.app */,
-				FFD64C2A2916EC6F0015F6B3 /* NavigationTests.xctest */,
-				FFD64C342916EC6F0015F6B3 /* NavigationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,42 +154,6 @@
 			productReference = FFD64C142916EC6E0015F6B3 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FFD64C292916EC6F0015F6B3 /* NavigationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FFD64C412916EC6F0015F6B3 /* Build configuration list for PBXNativeTarget "NavigationTests" */;
-			buildPhases = (
-				FFD64C262916EC6F0015F6B3 /* Sources */,
-				FFD64C272916EC6F0015F6B3 /* Frameworks */,
-				FFD64C282916EC6F0015F6B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FFD64C2C2916EC6F0015F6B3 /* PBXTargetDependency */,
-			);
-			name = NavigationTests;
-			productName = NavigationTests;
-			productReference = FFD64C2A2916EC6F0015F6B3 /* NavigationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FFD64C332916EC6F0015F6B3 /* NavigationUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FFD64C442916EC6F0015F6B3 /* Build configuration list for PBXNativeTarget "NavigationUITests" */;
-			buildPhases = (
-				FFD64C302916EC6F0015F6B3 /* Sources */,
-				FFD64C312916EC6F0015F6B3 /* Frameworks */,
-				FFD64C322916EC6F0015F6B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FFD64C362916EC6F0015F6B3 /* PBXTargetDependency */,
-			);
-			name = NavigationUITests;
-			productName = NavigationUITests;
-			productReference = FFD64C342916EC6F0015F6B3 /* NavigationUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -237,14 +166,6 @@
 				TargetAttributes = {
 					FFD64C132916EC6E0015F6B3 = {
 						CreatedOnToolsVersion = 14.1;
-					};
-					FFD64C292916EC6F0015F6B3 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = FFD64C132916EC6E0015F6B3;
-					};
-					FFD64C332916EC6F0015F6B3 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = FFD64C132916EC6E0015F6B3;
 					};
 				};
 			};
@@ -262,8 +183,6 @@
 			projectRoot = "";
 			targets = (
 				FFD64C132916EC6E0015F6B3 /* Navigation */,
-				FFD64C292916EC6F0015F6B3 /* NavigationTests */,
-				FFD64C332916EC6F0015F6B3 /* NavigationUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,20 +194,6 @@
 			files = (
 				FFD64C242916EC6F0015F6B3 /* LaunchScreen.storyboard in Resources */,
 				FFD64C212916EC6F0015F6B3 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD64C282916EC6F0015F6B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD64C322916EC6F0015F6B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +210,7 @@
 				FFD64C1C2916EC6E0015F6B3 /* ViewController.swift in Sources */,
 				FFD64C182916EC6E0015F6B3 /* AppDelegate.swift in Sources */,
 				FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */,
-				FFD2BB2E29436EDD00EF3D5C /* CustomClasses.swift in Sources */,
+				FFD2BB2E29436EDD00EF3D5C /* Custom.swift in Sources */,
 				FFD64C4E291833880015F6B3 /* FeedModel.swift in Sources */,
 				FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */,
 				FFFEF826291FCFD80025FB74 /* Post.swift in Sources */,
@@ -315,34 +220,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FFD64C262916EC6F0015F6B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD64C302916EC6F0015F6B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FFD64C2C2916EC6F0015F6B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FFD64C132916EC6E0015F6B3 /* Navigation */;
-			targetProxy = FFD64C2B2916EC6F0015F6B3 /* PBXContainerItemProxy */;
-		};
-		FFD64C362916EC6F0015F6B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FFD64C132916EC6E0015F6B3 /* Navigation */;
-			targetProxy = FFD64C352916EC6F0015F6B3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FFD64C222916EC6F0015F6B3 /* LaunchScreen.storyboard */ = {
@@ -524,78 +402,6 @@
 			};
 			name = Release;
 		};
-		FFD64C422916EC6F0015F6B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Alex.NavigationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
-			};
-			name = Debug;
-		};
-		FFD64C432916EC6F0015F6B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Alex.NavigationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
-			};
-			name = Release;
-		};
-		FFD64C452916EC6F0015F6B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Alex.NavigationUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Navigation;
-			};
-			name = Debug;
-		};
-		FFD64C462916EC6F0015F6B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Alex.NavigationUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Navigation;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -613,24 +419,6 @@
 			buildConfigurations = (
 				FFD64C3F2916EC6F0015F6B3 /* Debug */,
 				FFD64C402916EC6F0015F6B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FFD64C412916EC6F0015F6B3 /* Build configuration list for PBXNativeTarget "NavigationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FFD64C422916EC6F0015F6B3 /* Debug */,
-				FFD64C432916EC6F0015F6B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FFD64C442916EC6F0015F6B3 /* Build configuration list for PBXNativeTarget "NavigationUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FFD64C452916EC6F0015F6B3 /* Debug */,
-				FFD64C462916EC6F0015F6B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
