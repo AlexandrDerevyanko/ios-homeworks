@@ -55,6 +55,9 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
+        #if DEBUG
+        backgroundColor = .cyan
+        #endif
     }
     
     required init?(coder: NSCoder) {
