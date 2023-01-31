@@ -1,5 +1,7 @@
 
 import UIKit
+import SnapKit
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
     
@@ -65,11 +67,14 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setup (with viewModel: ViewModel) {
-        images.image = viewModel.image
+        let sourceImage = viewModel.image ?? UIImage()
         authors.text = viewModel.author
         descriptions.text = viewModel.description
         likes.text = "Likes: \(viewModel.likes)"
         views.text = "Views: \(viewModel.views)"
+        ImageProcessor.init().processImage(sourceImage: sourceImage, filter: .chrome) { filterImage in
+            images.image = filterImage
+        }
     }
     
     override func prepareForReuse() {
@@ -88,30 +93,33 @@ class PostTableViewCell: UITableViewCell {
         addSubview(likes)
         addSubview(views)
         
-        NSLayoutConstraint.activate([
-            
-            authors.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            authors.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            authors.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            authors.heightAnchor.constraint(equalToConstant: 30),
-
-            images.topAnchor.constraint(equalTo: authors.bottomAnchor, constant: 16),
-            images.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            images.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            images.heightAnchor.constraint(equalTo: images.widthAnchor, multiplier: 1),
-
-            descriptions.topAnchor.constraint(equalTo: images.bottomAnchor, constant: 16),
-            descriptions.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptions.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-
-            likes.topAnchor.constraint(equalTo: descriptions.bottomAnchor, constant: 16),
-            likes.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            likes.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-
-            views.topAnchor.constraint(equalTo: descriptions.bottomAnchor, constant: 16),
-            views.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            views.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-        ])
+        authors.snp.makeConstraints { make in
+            make.top.equalTo(self).offset(16)
+            make.left.equalTo(self).offset(16)
+            make.right.equalTo(self).offset(-16)
+            make.height.equalTo(30)
+        }
+        images.snp.makeConstraints { make in
+            make.top.equalTo(authors.snp.bottom).offset(16)
+            make.left.equalTo(self).offset(16)
+            make.right.equalTo(self).offset(-16)
+            make.height.equalTo(images.snp.width)
+        }
+        descriptions.snp.makeConstraints { make in
+            make.top.equalTo(images.snp.bottom).offset(16)
+            make.left.equalTo(self).offset(16)
+            make.right.equalTo(self).offset(-16)
+        }
+        likes.snp.makeConstraints { make in
+            make.top.equalTo(descriptions.snp.bottom).offset(16)
+            make.left.equalTo(self).offset(16)
+            make.bottom.equalTo(self).offset(-16)
+        }
+        views.snp.makeConstraints { make in
+            make.top.equalTo(descriptions.snp.bottom).offset(16)
+            make.right.equalTo(self).offset(-16)
+            make.bottom.equalTo(self).offset(-16)
+        }
         
     }
     

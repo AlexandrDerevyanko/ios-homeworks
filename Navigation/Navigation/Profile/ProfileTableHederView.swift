@@ -69,7 +69,7 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        setupUI()
+        setupView()
         #if DEBUG
         backgroundColor = .cyan
         #endif
@@ -79,13 +79,12 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
+    private func setupView() {
         addSubview(setStatusButton)
         addSubview(statusTextField)
         addSubview(statusLabel)
         addSubview(fullNameLabel)
         addSubview(avatarImageView)
-
         addTargets()
         setupConstraints()
     }

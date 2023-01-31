@@ -76,6 +76,7 @@ class FeedViewController: UIViewController {
     }
     
     private func setupUI() {
+        setupBarButtonItem()
         view.addSubview(descriptionLabel)
         view.addSubview(stackView)
         stackView.addArrangedSubview(firstButton)
@@ -101,6 +102,16 @@ class FeedViewController: UIViewController {
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
+    }
+    
+    private func setupBarButtonItem() {
+        let baritem = UIBarButtonItem(image: UIImage(systemName: "hand.raised.fingers.spread"), style: .plain, target: self, action: #selector(tap))
+        self.navigationItem.rightBarButtonItem = baritem
+    }
+    
+    @objc private func tap() {
+        let exampleController = InfoViewController()
+        navigationController?.pushViewController(exampleController, animated: true)
     }
     
     @objc private func tapOnBlueButton() {
