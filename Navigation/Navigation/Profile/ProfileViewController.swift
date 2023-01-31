@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray5
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
                    
@@ -128,7 +128,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return tableView.frame.width / 4
+            return tableView.frame.width / 3.2
         }
         if indexPath.section == 1 {
             return UITableView.automaticDimension

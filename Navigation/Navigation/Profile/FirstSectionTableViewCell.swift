@@ -30,6 +30,22 @@ class FirstSectionTableViewCell: UITableViewCell {
         return collectionView
     }()
     
+    private let label: UILabel = {
+        let label = UILabel()
+        label.text = "Photos"
+        label.font = UIFont(name: "Arial Bold", size: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.right"), for: [])
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .systemBackground
@@ -44,13 +60,21 @@ class FirstSectionTableViewCell: UITableViewCell {
     private func setupView() {
         backgroundColor = .systemBackground
         addSubview(collectionView)
+        addSubview(label)
+        addSubview(button)
 
         NSLayoutConstraint.activate([
             
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            button.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+            
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            
+            collectionView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 12),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             
             
         ])
@@ -71,6 +95,7 @@ extension FirstSectionTableViewCell: UICollectionViewDataSource, UICollectionVie
         }
 
         cell.clipsToBounds = true
+        cell.layer.cornerRadius = 6
         cell.setup(with: data[indexPath.row])
         return cell
     }
