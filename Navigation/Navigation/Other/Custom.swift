@@ -7,6 +7,12 @@
 
 import UIKit
 
+var sec = SecondPost(title: "2")
+
+struct SecondPost {
+    var title: String
+}
+
 class CustomButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
@@ -46,9 +52,3 @@ class TextFieldWithPadding: UITextField {
         return rect.inset(by: textPadding)
     }
 }
-
-struct SecondPost {
-    var title: String
-}
-
-var sec = SecondPost(title: "2")
