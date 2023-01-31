@@ -75,11 +75,6 @@ class FeedViewController: UIViewController {
         secondButton.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
     }
     
-    @objc private func tapOnBlueButton() {
-        let exampleController = ProfileViewController()
-        navigationController?.pushViewController(exampleController, animated: true)
-    }
-    
     private func setupUI() {
         view.addSubview(descriptionLabel)
         view.addSubview(stackView)
@@ -107,4 +102,10 @@ class FeedViewController: UIViewController {
         ])
         
     }
+    
+    @objc private func tapOnBlueButton() {
+        let exampleController = ProfileViewController()
+        navigationController?.pushViewController(exampleController, animated: true)
+    }
+    
 }
