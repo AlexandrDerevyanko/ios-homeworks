@@ -136,5 +136,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let exampleController = PhotosViewController()
+                navigationController?.pushViewController(exampleController, animated: true)
+            }
+        }
+    }
+    
 }
 
