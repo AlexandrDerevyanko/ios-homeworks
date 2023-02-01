@@ -20,7 +20,7 @@ class PostTableViewCell: UITableViewCell {
     
     private let authors: UILabel = {
         let authors = UILabel()
-        authors.font = UIFont(name: "Arial Bold", size: 20)
+        authors.font = UIFont.boldSystemFont(ofSize: 20)
         authors.textColor = .black
         authors.numberOfLines = 2
         authors.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ class PostTableViewCell: UITableViewCell {
     
     private let descriptions: UILabel = {
         let descriptions = UILabel()
-        descriptions.font = UIFont(name: "Arial normal", size: 14)
+        descriptions.font = UIFont.systemFont(ofSize: 14)
         descriptions.textColor = .systemGray
         descriptions.numberOfLines = 0
         descriptions.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class PostTableViewCell: UITableViewCell {
     
     private let likes: UILabel = {
         let likes = UILabel()
-        likes.font = UIFont(name: "Arial normal", size: 16)
+        likes.font = UIFont.systemFont(ofSize: 16)
         likes.textColor = .black
         likes.translatesAutoresizingMaskIntoConstraints = false
         return likes
@@ -46,7 +46,7 @@ class PostTableViewCell: UITableViewCell {
     
     private let views: UILabel = {
         let views = UILabel()
-        views.font = UIFont(name: "Arial normal", size: 16)
+        views.font = UIFont.systemFont(ofSize: 16)
         views.textColor = .black
         views.translatesAutoresizingMaskIntoConstraints = false
         return views

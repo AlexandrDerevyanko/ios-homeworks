@@ -33,7 +33,7 @@ class FirstSectionTableViewCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Photos"
-        label.font = UIFont(name: "Arial Bold", size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

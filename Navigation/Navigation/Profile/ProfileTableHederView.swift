@@ -14,7 +14,7 @@ class ProfileHeaderView: UIView {
         fText.borderStyle = .roundedRect
         fText.contentVerticalAlignment = .center
         fText.textColor = .black
-        fText.font = UIFont(name: "Arial regular", size: 15)
+        fText.font = UIFont.systemFont(ofSize: 15)
         fText.layer.cornerRadius = 12
         fText.clipsToBounds = true
         fText.layer.borderColor = UIColor.black.cgColor
@@ -37,7 +37,7 @@ class ProfileHeaderView: UIView {
     private let fullNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Corgi"
-        label.font = UIFont(name: "Arial Bold", size: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,7 +46,7 @@ class ProfileHeaderView: UIView {
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.text = "Waiting for something"
-        label.font = UIFont(name: "Arial regular", size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
