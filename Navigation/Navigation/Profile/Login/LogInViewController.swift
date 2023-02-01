@@ -103,7 +103,7 @@ class LogInViewController: UIViewController {
     }
         
     private func setupButton() {
-            button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
         }
         
     private func setupGestures() {
@@ -165,8 +165,10 @@ class LogInViewController: UIViewController {
     }
         
     @objc private func tapOnBlueButton() {
-            let profileViewController = ProfileViewController()
-            navigationController?.pushViewController(profileViewController, animated: true)
+        let logIn = logInTextFiled.text ?? " "
+        CurrentUserService().isLogin(with: logIn)
+//            let profileViewController = ProfileViewController()
+//            navigationController?.pushViewController(profileViewController, animated: true)
         }
         
     @objc private func forcedHidingKeyboard() {

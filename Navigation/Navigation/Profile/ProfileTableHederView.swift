@@ -9,7 +9,15 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private let statusTextField: UITextField = {
+    struct User {
+        var fullName: String?
+        var avatar: UIImage?
+        var status: String?
+    }
+    
+    var statusText: String = ""
+
+    let statusTextField: UITextField = {
         let fText = UITextField()
         fText.borderStyle = .roundedRect
         fText.contentVerticalAlignment = .center
@@ -23,7 +31,7 @@ class ProfileHeaderView: UIView {
         return fText
     }()
 
-    private let avatarImageView: UIImageView = {
+    let avatarImageView: UIImageView = {
         let myView = UIImageView()
         myView.image = UIImage(named: "corgi")!
         myView.layer.cornerRadius = 50
@@ -34,7 +42,7 @@ class ProfileHeaderView: UIView {
         return myView
     }()
             
-    private let fullNameLabel: UILabel = {
+    let fullNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Corgi"
         label.font = UIFont(name: "Arial Bold", size: 18)
@@ -95,8 +103,12 @@ class ProfileHeaderView: UIView {
         statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
     }
     
-    private var statusText: String = ""
-    
+    func setup(with user: User) {
+        statusTextField.text = user.status
+        fullNameLabel.text = user.fullName
+        avatarImageView.image = user.avatar
+    }
+        
     @objc private func buttonPressed() {
         statusLabel.text = statusText
         print("\(String(describing: statusLabel.text))!")

@@ -52,3 +52,33 @@ class TextFieldWithPadding: UITextField {
         return rect.inset(by: textPadding)
     }
 }
+
+class User {
+    var logIn: String
+    var fullName: String
+    var avatar: UIImage
+    var status: String
+    init(logIn: String, fullName: String, avatar: UIImage, status: String) {
+        self.logIn = logIn
+        self.fullName = fullName
+        self.avatar = avatar
+        self.status = status
+    }
+}
+
+protocol UserService {
+    func isLogin (with : String) -> User?
+}
+
+class CurrentUserService: UserService {
+    func isLogin(with logIn: String) -> User? {
+        if logIn == user.logIn {
+            let transferToProfile = user
+            let profile = ProfileHeaderView.User(fullName: transferToProfile.fullName, avatar: transferToProfile.avatar, status: transferToProfile.status)
+        } else {
+            //Действие
+        }
+        return nil
+    }
+    var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm Fine")
+}
