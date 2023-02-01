@@ -76,7 +76,7 @@ class FeedViewController: UIViewController {
     }
     
     @objc func tapOnBlueButton() {
-        let exampleController = ProfileViewController()
+        let exampleController = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
         navigationController?.pushViewController(exampleController, animated: true)
     }
     

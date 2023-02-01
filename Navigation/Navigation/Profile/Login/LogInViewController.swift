@@ -3,6 +3,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    private let alertController = UIAlertController(title: "Error", message: "invalid username", preferredStyle: .alert)
+    
     private let point: UIView = {
         let point = UIView()
         point.backgroundColor = .lightGray
@@ -100,6 +102,7 @@ class LogInViewController: UIViewController {
         stackView.addArrangedSubview(passwordTextFiled)
         setupButton()
         setupGestures()
+        setupAlertConfiguration()
     }
         
     private func setupButton() {
@@ -109,6 +112,11 @@ class LogInViewController: UIViewController {
     private func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
         self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func setupAlertConfiguration() {
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
     }
         
     private func setupConstraints() {
@@ -166,8 +174,24 @@ class LogInViewController: UIViewController {
         
     @objc private func tapOnBlueButton() {
         let logIn = logInTextFiled.text ?? " "
-        let result = CurrentUserService().isLogin(with: logIn)
+        let user = CurrentUserService().checkUser(with: logIn)
+        let testUser = TestUserService().checkUser(with: logIn)
+        #if DEBUG
+        if testUser != nil {
+            let vc = ProfileViewController(user: testUser ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            present(alertController, animated: true, completion: nil)
         }
+        #else
+        if user != nil {
+            let vc = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            present(alertController, animated: true, completion: nil)
+        }
+        #endif
+    }
         
     @objc private func forcedHidingKeyboard() {
         self.view.endEditing(true)

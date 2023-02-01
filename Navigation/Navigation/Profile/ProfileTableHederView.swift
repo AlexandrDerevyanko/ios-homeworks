@@ -9,12 +9,6 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    struct User {
-        var fullName: String?
-        var avatar: UIImage?
-        var status: String?
-    }
-    
     var statusText: String = ""
 
     let statusTextField: UITextField = {
@@ -79,7 +73,7 @@ class ProfileHeaderView: UIView {
         backgroundColor = .systemBackground
         setupUI()
         #if DEBUG
-        backgroundColor = .cyan
+//        backgroundColor = .cyan
         #endif
     }
     
@@ -104,7 +98,7 @@ class ProfileHeaderView: UIView {
     }
     
     func setup(with user: User) {
-        statusTextField.text = user.status
+        statusLabel.text = user.status
         fullNameLabel.text = user.fullName
         avatarImageView.image = user.avatar
     }
@@ -137,7 +131,7 @@ class ProfileHeaderView: UIView {
 
             
             statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -70),
-            statusLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 132),
+            statusLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -15),
             statusTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 132),

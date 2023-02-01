@@ -9,9 +9,9 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    var source = SecondPost(title: "Some title")
+    private var source = SecondPost(title: "Some title")
     
-    let alertController = UIAlertController(title: "Hello world", message: "Message", preferredStyle: .alert)
+    private let alertController = UIAlertController(title: "Hello world", message: "Message", preferredStyle: .alert)
     
     private let titleLabel: UILabel = {
         let label = UILabel()

@@ -4,6 +4,16 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+    var user: User
+    init(user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .systemBackground
@@ -75,10 +85,15 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         if section == 0 {
-            return ProfileHeaderView()
+            let cell = ProfileHeaderView()
+            let post = user
+            cell.setup(with: post)
+            return cell
         }
         return nil
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

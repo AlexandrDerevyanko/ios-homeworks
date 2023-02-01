@@ -67,18 +67,33 @@ class User {
 }
 
 protocol UserService {
-    func isLogin (with : String) -> User?
+    func checkUser (with : String) -> User?
 }
 
 class CurrentUserService: UserService {
     
-    var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm Fine")
+    var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine")
     
-    func isLogin(with logIn: String) -> User? {
+    func checkUser(with logIn: String) -> User? {
         if logIn == user.logIn {
             return user
         } else {
             return nil
         }
     }
+    
+}
+
+class TestUserService: UserService {
+    
+    var user: User = User(logIn: "Tester", fullName: "Corgi Tester", avatar: UIImage(named: "sadCorgi") ?? UIImage(), status: "I'm not fine")
+    
+    func checkUser(with logIn: String) -> User? {
+        if logIn == user.logIn {
+            return user
+        } else {
+            return nil
+        }
+    }
+    
 }

@@ -56,7 +56,7 @@ class PostTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
         #if DEBUG
-        backgroundColor = .cyan
+//        backgroundColor = .cyan
         #endif
     }
     
