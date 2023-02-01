@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class PostViewController: UIViewController {
     
     var source = SecondPost(title: "Some title")

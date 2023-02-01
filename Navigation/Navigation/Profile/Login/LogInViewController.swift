@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
         logIn.tag = 0
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
-        logIn.font = UIFont(name: "SystemFont", size: 16)
+        logIn.font = UIFont.systemFont(ofSize: 16)
         logIn.placeholder = "Email or phone"
         logIn.autocapitalizationType = .none
         logIn.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class LogInViewController: UIViewController {
         password.tag = 1
         password.textColor = .black
         password.backgroundColor = .systemGray6
-        password.font = UIFont(name: "SystemFont", size: 16)
+        password.font = UIFont.systemFont(ofSize: 16)
         password.placeholder = "Password"
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
@@ -166,9 +166,7 @@ class LogInViewController: UIViewController {
         
     @objc private func tapOnBlueButton() {
         let logIn = logInTextFiled.text ?? " "
-        CurrentUserService().isLogin(with: logIn)
-//            let profileViewController = ProfileViewController()
-//            navigationController?.pushViewController(profileViewController, animated: true)
+        let result = CurrentUserService().isLogin(with: logIn)
         }
         
     @objc private func forcedHidingKeyboard() {

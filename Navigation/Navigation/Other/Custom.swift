@@ -71,14 +71,14 @@ protocol UserService {
 }
 
 class CurrentUserService: UserService {
+    
+    var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm Fine")
+    
     func isLogin(with logIn: String) -> User? {
         if logIn == user.logIn {
-            let transferToProfile = user
-            let profile = ProfileHeaderView.User(fullName: transferToProfile.fullName, avatar: transferToProfile.avatar, status: transferToProfile.status)
+            return user
         } else {
-            //Действие
+            return nil
         }
-        return nil
     }
-    var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm Fine")
 }
