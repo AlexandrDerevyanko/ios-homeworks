@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupGestures()
+//        setupGestures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,18 +54,18 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    private func setupGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc private func didHideKeyboard (_ notification: Notification) {
-        forcedHidingKeyboard()
-    }
-    
-    @objc private func forcedHidingKeyboard() {
-        view.endEditing(true)
-    }
+//    private func setupGestures() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
+//        view.addGestureRecognizer(tapGesture)
+//    }
+//
+//    @objc private func didHideKeyboard (_ notification: Notification) {
+//        forcedHidingKeyboard()
+//    }
+//
+//    @objc private func forcedHidingKeyboard() {
+//        view.endEditing(true)
+//    }
     
 }
 
