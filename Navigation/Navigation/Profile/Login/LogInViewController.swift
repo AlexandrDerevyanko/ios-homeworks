@@ -3,8 +3,6 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    private let alertController = UIAlertController(title: "Error", message: "invalid username", preferredStyle: .alert)
-    
     private let point: UIView = {
         let point = UIView()
         point.backgroundColor = .lightGray
@@ -102,7 +100,6 @@ class LogInViewController: UIViewController {
         stackView.addArrangedSubview(passwordTextFiled)
         setupButton()
         setupGestures()
-        setupAlertConfiguration()
     }
         
     private func setupButton() {
@@ -112,11 +109,6 @@ class LogInViewController: UIViewController {
     private func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
         self.view.addGestureRecognizer(tapGesture)
-    }
-    
-    private func setupAlertConfiguration() {
-        let action = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(action)
     }
         
     private func setupConstraints() {
@@ -151,7 +143,6 @@ class LogInViewController: UIViewController {
             button.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16)
         
         ])
-        
     }
         
     @objc private func didShowKeyboard(_ notification: Notification) {
@@ -173,24 +164,20 @@ class LogInViewController: UIViewController {
     }
         
     @objc private func tapOnBlueButton() {
-        let logIn = logInTextFiled.text ?? " "
-        let user = CurrentUserService().checkUser(with: logIn)
-        let testUser = TestUserService().checkUser(with: logIn)
-        #if DEBUG
-        if testUser != nil {
-            let vc = ProfileViewController(user: testUser ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-            navigationController?.pushViewController(vc, animated: true)
+#if DEBUG
+        let service = TestUserService()
+#else
+        let service = CurrentUserService()
+#endif
+        //Check user logIn
+        if let user = service.checkUser(with: logInTextFiled.text ?? "") {
+            let profileVC = ProfileViewController(user: user)
+            navigationController?.setViewControllers([profileVC], animated: true)
         } else {
-            present(alertController, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true)
         }
-        #else
-        if user != nil {
-            let vc = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            present(alertController, animated: true, completion: nil)
-        }
-        #endif
     }
         
     @objc private func forcedHidingKeyboard() {
@@ -199,3 +186,4 @@ class LogInViewController: UIViewController {
     }
     
 }
+

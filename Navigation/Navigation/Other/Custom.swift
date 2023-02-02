@@ -75,11 +75,7 @@ class CurrentUserService: UserService {
     var user: User = User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine")
     
     func checkUser(with logIn: String) -> User? {
-        if logIn == user.logIn {
-            return user
-        } else {
-            return nil
-        }
+        return logIn == user.logIn ? user : nil
     }
     
 }
@@ -89,11 +85,7 @@ class TestUserService: UserService {
     var user: User = User(logIn: "Tester", fullName: "Corgi Tester", avatar: UIImage(named: "sadCorgi") ?? UIImage(), status: "I'm not fine")
     
     func checkUser(with logIn: String) -> User? {
-        if logIn == user.logIn {
-            return user
-        } else {
-            return nil
-        }
+        return logIn == user.logIn ? user : nil
     }
     
 }
