@@ -42,6 +42,7 @@ class PhotosViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationItem.title = "Photo Gallery"
     }
@@ -56,6 +57,10 @@ class PhotosViewController: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    @objc private func cancel() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
 }
