@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF31F41D29471712009C1461 /* ProfileTableHederView.swift */; };
+		FF3EC6E6298B6729006D7A72 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6E5298B6729006D7A72 /* UserService.swift */; };
+		FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */; };
+		FF3EC6EA298B67C3006D7A72 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6E9298B67C3006D7A72 /* PhotosViewController.swift */; };
+		FF3EC6EC298B68A1006D7A72 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6EB298B68A1006D7A72 /* PhotosCollectionViewCell.swift */; };
 		FF8D39B22983C19E002995D1 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8D39B12983C19E002995D1 /* StorageService.docc */; };
 		FF8D39B32983C19E002995D1 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8D39B02983C19E002995D1 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8D39B62983C19E002995D1 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8D39AE2983C19E002995D1 /* StorageService.framework */; };
@@ -54,6 +58,10 @@
 
 /* Begin PBXFileReference section */
 		FF31F41D29471712009C1461 /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
+		FF3EC6E5298B6729006D7A72 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionTableViewCell.swift; sourceTree = "<group>"; };
+		FF3EC6E9298B67C3006D7A72 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		FF3EC6EB298B68A1006D7A72 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF8D39AE2983C19E002995D1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8D39B02983C19E002995D1 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		FF8D39B12983C19E002995D1 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */,
+				FF3EC6E5298B6729006D7A72 /* UserService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -145,9 +154,12 @@
 			isa = PBXGroup;
 			children = (
 				FF1D2B502958081800D0E676 /* Login */,
-				FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */,
-				FF31F41D29471712009C1461 /* ProfileTableHederView.swift */,
 				FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */,
+				FF31F41D29471712009C1461 /* ProfileTableHederView.swift */,
+				FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */,
+				FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */,
+				FF3EC6E9298B67C3006D7A72 /* PhotosViewController.swift */,
+				FF3EC6EB298B68A1006D7A72 /* PhotosCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -311,10 +323,14 @@
 				FFD64C1C2916EC6E0015F6B3 /* ViewController.swift in Sources */,
 				FFD64C182916EC6E0015F6B3 /* AppDelegate.swift in Sources */,
 				FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */,
+				FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */,
+				FF3EC6E6298B6729006D7A72 /* UserService.swift in Sources */,
 				FFD2BB2E29436EDD00EF3D5C /* Custom.swift in Sources */,
+				FF3EC6EA298B67C3006D7A72 /* PhotosViewController.swift in Sources */,
 				FFD64C4E291833880015F6B3 /* FeedModel.swift in Sources */,
 				FF31F41E29471712009C1461 /* ProfileTableHederView.swift in Sources */,
 				FF8FEDF32950679300D37BB9 /* PostTableViewCell.swift in Sources */,
+				FF3EC6EC298B68A1006D7A72 /* PhotosCollectionViewCell.swift in Sources */,
 				FFFEF824291FC00D0025FB74 /* InfoViewController.swift in Sources */,
 				FFD64C1A2916EC6E0015F6B3 /* SceneDelegate.swift in Sources */,
 			);
