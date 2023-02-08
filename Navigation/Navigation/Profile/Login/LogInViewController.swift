@@ -169,8 +169,8 @@ class LogInViewController: UIViewController {
         
         let service = CurrentUserService()
         
-        if loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") == logInTextFiled.text {
-            let user = service.checkUser(with: logInTextFiled.text!)
+        if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
+            let user = service.checkUser(with: logIn)
             let profileVC = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
             navigationController?.setViewControllers([profileVC], animated: true)
         } else {

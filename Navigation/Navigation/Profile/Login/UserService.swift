@@ -16,12 +16,12 @@ protocol UserService {
 }
 
 protocol LoginViewControllerDelegate {
-    func check(logIn: String, password: String) -> String
+    func check(logIn: String, password: String) -> String?
 }
 
 struct LoginInspector: LoginViewControllerDelegate {
-    func check(logIn: String, password: String) -> String {
-        return Checker.shared.check(logIn: logIn, password: password) == true ? logIn : ""
+    func check(logIn: String, password: String) -> String? {
+        return Checker.shared.check(logIn: logIn, password: password) == true ? logIn : nil
     }
 }
 
