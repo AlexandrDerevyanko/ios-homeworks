@@ -71,13 +71,18 @@ class FeedViewController: UIViewController {
     }
     
     private func setupButton() {
-        firstButton.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
-        secondButton.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(tapOnFirstButton), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(tapOnSecondButton), for: .touchUpInside)
     }
     
-    @objc func tapOnBlueButton() {
-        let exampleController = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-        navigationController?.pushViewController(exampleController, animated: true)
+    @objc private func tapOnFirstButton() {
+        let profileVC = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    @objc private func tapOnSecondButton() {
+        let photosVC = PhotosViewController()
+        navigationController?.pushViewController(photosVC, animated: true)
     }
     
     private func setupUI() {

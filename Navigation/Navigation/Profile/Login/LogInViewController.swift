@@ -3,6 +3,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var loginDelegate: LoginViewControllerDelegate?
+    
     private let point: UIView = {
         let point = UIView()
         point.backgroundColor = .lightGray
@@ -164,20 +166,19 @@ class LogInViewController: UIViewController {
     }
         
     @objc private func tapOnBlueButton() {
-#if DEBUG
-        let service = TestUserService()
-#else
+        
         let service = CurrentUserService()
-#endif
-        //Check user logIn
-        if let user = service.checkUser(with: logInTextFiled.text ?? "") {
-            let profileVC = ProfileViewController(user: user)
+        
+        if loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") == logInTextFiled.text {
+            let user = service.checkUser(with: logInTextFiled.text!)
+            let profileVC = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
             navigationController?.setViewControllers([profileVC], animated: true)
         } else {
-            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-            self.present(alert, animated: true)
+            let alert = UIAlertController(title: "Unknown login or password", message: "Please, enter correct user login and password", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
         }
+        
     }
         
     @objc private func forcedHidingKeyboard() {

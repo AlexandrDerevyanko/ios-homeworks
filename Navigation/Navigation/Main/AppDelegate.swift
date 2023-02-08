@@ -9,10 +9,12 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var LoginVC = LogInViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        LoginVC.loginDelegate = LoginInspector()
         return true
     }
 
@@ -37,14 +39,18 @@ class TabBarController: UITabBarController {
     
     var firstTabNavigationController: UINavigationController!
     var secondTabNavigationController: UINavigationController!
+    var loginVC = LogInViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     private func setupUI() {
+        loginVC.loginDelegate = MyLoginFactory().makeLoginInspector()
+        
         firstTabNavigationController = UINavigationController.init(rootViewController: FeedViewController())
-        secondTabNavigationController = UINavigationController.init(rootViewController: LogInViewController())
+        secondTabNavigationController = UINavigationController.init(rootViewController: loginVC)
+
         
         self.viewControllers = [firstTabNavigationController, secondTabNavigationController]
         
@@ -60,6 +66,5 @@ class TabBarController: UITabBarController {
         UITabBar.appearance().backgroundColor = .systemGray6
         
         secondTabNavigationController.isNavigationBarHidden = true
-        
     }
 }

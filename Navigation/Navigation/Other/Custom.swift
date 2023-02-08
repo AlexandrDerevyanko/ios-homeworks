@@ -56,4 +56,3 @@ class TextFieldWithPadding: UITextField {
         return rect.inset(by: textPadding)
     }
 }
-

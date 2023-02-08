@@ -120,8 +120,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
             
         }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
             
-        return SecondTableViewCell()
+        return cell
         
     }
     

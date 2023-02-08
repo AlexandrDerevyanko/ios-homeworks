@@ -7,8 +7,28 @@
 
 import UIKit
 
+protocol LoginFactory {
+    func makeLoginInspector() -> LoginInspector
+}
+
 protocol UserService {
     func checkUser (with : String) -> User?
+}
+
+protocol LoginViewControllerDelegate {
+    func check(logIn: String, password: String) -> String
+}
+
+struct LoginInspector: LoginViewControllerDelegate {
+    func check(logIn: String, password: String) -> String {
+        return Checker.shared.check(logIn: logIn, password: password) == true ? logIn : ""
+    }
+}
+
+struct MyLoginFactory: LoginFactory {
+    func makeLoginInspector() -> LoginInspector {
+        LoginInspector()
+    }
 }
 
 class User {
@@ -40,6 +60,20 @@ class TestUserService: UserService {
     
     func checkUser(with logIn: String) -> User? {
         return logIn == user.logIn ? user : nil
+    }
+    
+}
+
+class Checker {
+    
+    private let userLogIn: String = "Corgi"
+    private let userPassword: String = "1234"
+    static let shared = Checker()
+    
+    private init() {}
+    
+    func check(logIn: String, password: String) -> Bool {
+        return logIn == userLogIn && password == userPassword ? true : false
     }
     
 }
