@@ -168,7 +168,7 @@ class LogInViewController: UIViewController {
     @objc private func tapOnBlueButton() {
         
         let service = CurrentUserService()
-        
+                
         if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
             let user = service.checkUser(with: logIn)
             let profileVC = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))

@@ -7,12 +7,16 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, ImageLibrarySubscriber {
+    
     
     private enum Constants {
         static let numberOfItemsInLIne: CGFloat = 3
     }
+    
+    var imageDacade = ImagePublisherFacade()
     
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -35,10 +39,18 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
+        imageDacade.subscribe(self)
+        imageDacade.addImagesWithTimer(time: 0.5, repeat: 20)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        imageDacade.removeSubscription(for: self)
         collectionView.reloadData()
     }
     
@@ -106,4 +118,11 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
     }
     
+    func receive(images: [UIImage]) {
+        var imageArray: [UIImage] = images
+        data = imageArray
+        collectionView.reloadData()
+    }
+    
 }
+
