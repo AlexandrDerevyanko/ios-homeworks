@@ -101,7 +101,6 @@ class ProfileHeaderView: UIView {
     
     private func addTargets() {
         setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
     }
     
     func setup(with user: User) {
@@ -111,12 +110,7 @@ class ProfileHeaderView: UIView {
     }
         
     @objc private func buttonPressed() {
-        statusLabel.text = statusText
-        print("\(String(describing: statusLabel.text))!")
-    }
-    
-    @objc private func statusTextChanged(_ textField: UITextField) {
-        statusText = textField.text!
+        statusLabel.text = statusTextField.text ?? ""
     }
     
     private func setupConstraints() {

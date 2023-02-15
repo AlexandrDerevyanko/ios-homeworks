@@ -20,23 +20,18 @@ class InfoViewController: UIViewController {
         return label
     }()
     
-    private let button: UIButton = {
-        let button = UIButton()
-        button.setTitle("Button", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .cyan
-        button.layer.cornerRadius = 14
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var button: CustomButton = {
+        let button = CustomButton(buttonTitle: "Button", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
+        button.whenButtonIsClicked {
+            self.present(self.alertController, animated: true, completion: nil)
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         setupUI()
-        setupButton()
-        
     }
     
     private func setupUI() {
@@ -49,7 +44,6 @@ class InfoViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-        
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -57,14 +51,9 @@ class InfoViewController: UIViewController {
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             button.widthAnchor.constraint(equalToConstant: 100),
             button.heightAnchor.constraint(equalToConstant: 50)
-        
         ])
     }
     
-    private func setupButton() {
-        button.addTarget(self, action: #selector(addTarget), for: .touchUpInside)
-    }
-
     private func setupAlertConfiguration() {
         let action = UIAlertAction(title: "OK", style: .default) {_ in
             print("Bye")
@@ -74,11 +63,6 @@ class InfoViewController: UIViewController {
         }
         alertController.addAction(action)
         alertController.addAction(action2)
-
     }
-
-    @objc private func addTarget() {
-        self.present(alertController, animated: true, completion: nil)
-    }
-
+    
 }

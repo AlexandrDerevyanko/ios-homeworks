@@ -16,7 +16,7 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         static let numberOfItemsInLIne: CGFloat = 3
     }
     
-    var imageDacade = ImagePublisherFacade()
+    var imageFacade = ImagePublisherFacade()
     
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -39,8 +39,8 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
-        imageDacade.subscribe(self)
-        imageDacade.addImagesWithTimer(time: 0.5, repeat: 20)
+        imageFacade.subscribe(self)
+        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +50,7 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        imageDacade.removeSubscription(for: self)
+        imageFacade.removeSubscription(for: self)
         collectionView.reloadData()
     }
     
@@ -119,8 +119,7 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func receive(images: [UIImage]) {
-        var imageArray: [UIImage] = images
-        data = imageArray
+        data = images
         collectionView.reloadData()
     }
     

@@ -3,10 +3,17 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private var dataSource = FeedModel(title: "Some Title", description: "Some description")
+    class FeedModel {
+        var secretWord = "alpha"
+        
+        func check(word: String) -> String? {
+            return word == secretWord ? word : nil
+        }
+    }
     
+    private var dataSource = Feed(title: "Some Title", description: "Some description")
     
-    private let stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.alignment = .center
@@ -15,31 +22,54 @@ class FeedViewController: UIViewController {
         return view
     }()
     
-    private let firstButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Profile", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .cyan
-        button.layer.cornerRadius = 12
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.layer.cornerRadius = 12
+        textField.clipsToBounds = true
+        textField.borderStyle = .roundedRect
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 1
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    private lazy var checkGuessButton: CustomButton = {
+        let button = CustomButton(buttonTitle: "Check", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
+        button.whenButtonIsClicked {
+            let feedModel = FeedViewController.FeedModel()
+            if let word = feedModel.check(word: self.textField.text ?? "") {
+                self.label.backgroundColor = .green
+            } else {
+                self.label.backgroundColor = .red
+                let alert = UIAlertController(title: "Error", message: "Word entered incorrectly", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                    self.present(alert, animated: true)
+            }
+        }
         return button
     }()
     
-    private let secondButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Photos", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .cyan
-        button.layer.cornerRadius = 12
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var firstButton: CustomButton = {
+        let button = CustomButton(buttonTitle: "Profile", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
+        button.whenButtonIsClicked {
+            let profileVC = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }
+        return button
+    }()
+    
+    private lazy var secondButton: CustomButton = {
+        let button = CustomButton(buttonTitle: "Photos", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
+        button.whenButtonIsClicked {
+            let photosVC = PhotosViewController()
+            self.navigationController?.pushViewController(photosVC, animated: true)
+        }
         return button
     }()
     
@@ -54,7 +84,6 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-        setupButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,46 +99,60 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
-    private func setupButton() {
-        firstButton.addTarget(self, action: #selector(tapOnFirstButton), for: .touchUpInside)
-        secondButton.addTarget(self, action: #selector(tapOnSecondButton), for: .touchUpInside)
-    }
-    
-    @objc private func tapOnFirstButton() {
-        let profileVC = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-        navigationController?.pushViewController(profileVC, animated: true)
-    }
-    
-    @objc private func tapOnSecondButton() {
-        let photosVC = PhotosViewController()
-        navigationController?.pushViewController(photosVC, animated: true)
-    }
-    
     private func setupUI() {
         view.addSubview(descriptionLabel)
         view.addSubview(stackView)
+        view.addSubview(textField)
+        view.addSubview(checkGuessButton)
+        view.addSubview(label)
         stackView.addArrangedSubview(firstButton)
         stackView.addArrangedSubview(secondButton)
         descriptionLabel.text = dataSource.description
         setupConstraints()
-        
+        setupBarButtonItem()
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            textField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
+            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            textField.heightAnchor.constraint(equalToConstant: 40),
+            
+            checkGuessButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
+            checkGuessButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            checkGuessButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            checkGuessButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            stackView.topAnchor.constraint(equalTo: checkGuessButton.bottomAnchor, constant: 16),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             firstButton.widthAnchor.constraint(equalToConstant: 100),
             firstButton.heightAnchor.constraint(equalToConstant: 40),
             
             secondButton.widthAnchor.constraint(equalToConstant: 100),
             secondButton.heightAnchor.constraint(equalToConstant: 40),
-
-            descriptionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            
+            label.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            label.heightAnchor.constraint(equalToConstant: 50)
         ])
         
     }
+    
+    private func setupBarButtonItem() {
+        let barItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tap))
+        self.navigationItem.rightBarButtonItem = barItem
+    }
+    
+    @objc private func tap() {
+        let infoVC = InfoViewController()
+        navigationController?.pushViewController(infoVC, animated: true)
+    }
+    
 }

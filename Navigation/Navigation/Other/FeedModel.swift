@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct FeedModel {
+struct Feed {
     
     var title: String
     var description: String

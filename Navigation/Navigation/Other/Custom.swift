@@ -17,7 +17,7 @@ class SecondTableViewCell: UITableViewCell {
     
 }
 
-class CustomButton: UIButton {
+class BlueButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             if (isHighlighted) {
@@ -35,6 +35,50 @@ class CustomButton: UIButton {
                 alpha = 1
             }
         }
+    }
+}
+
+class CustomButton: UIButton {
+    var buttonTitle: String
+    var buttonTitleColor: UIColor
+    var buttonBackgroundColor: UIColor
+    var action: (() -> Void)?
+    
+    init(buttonTitle: String, buttonTitleColor: UIColor, buttonBackgroundColor: UIColor) {
+        self.buttonTitle = buttonTitle
+        self.buttonTitleColor = buttonTitleColor
+        self.buttonBackgroundColor = buttonBackgroundColor
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func whenButtonIsClicked(action: @escaping () -> Void) {
+            self.action = action
+            self.addTarget(self, action: #selector(CustomButton.buttonTapped), for: .touchUpInside)
+        }
+
+        @objc func buttonTapped() {
+            action?()
+        }
+    
+    override func layoutSubviews() {
+             super.layoutSubviews()
+             setup()
+         }
+    
+    func setup() {
+        setTitle(buttonTitle, for: .normal)
+        setTitleColor(buttonTitleColor, for: .normal)
+        backgroundColor = buttonBackgroundColor
+        layer.cornerRadius = 12
+        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowRadius = 4
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.7
+        translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

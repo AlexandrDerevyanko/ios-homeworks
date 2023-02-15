@@ -61,8 +61,8 @@ class LogInViewController: UIViewController {
         return password
         }()
         
-    private let button: CustomButton = {
-        let button = CustomButton()
+    private let button: BlueButton = {
+        let button = BlueButton()
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
