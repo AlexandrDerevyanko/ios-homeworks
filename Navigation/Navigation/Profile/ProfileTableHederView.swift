@@ -53,20 +53,8 @@ class ProfileHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-            
-    private let setStatusButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Set status", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 12
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    
+    private lazy var setStatusButton = CustomButton(title: "Set status", titleColor: .white, bgColor: .blue, action: setStatusButtonPressed)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -94,13 +82,7 @@ class ProfileHeaderView: UIView {
         addSubview(statusLabel)
         addSubview(fullNameLabel)
         addSubview(avatarImageView)
-
-        addTargets()
         setupConstraints()
-    }
-    
-    private func addTargets() {
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
     
     func setup(with user: User) {
@@ -109,7 +91,7 @@ class ProfileHeaderView: UIView {
         avatarImageView.image = user.avatar
     }
         
-    @objc private func buttonPressed() {
+    @objc private func setStatusButtonPressed() {
         statusLabel.text = statusTextField.text ?? ""
     }
     

@@ -39,39 +39,11 @@ class FeedViewController: UIViewController {
         return textField
     }()
     
-    private lazy var checkGuessButton: CustomButton = {
-        let button = CustomButton(buttonTitle: "Check", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
-        button.whenButtonIsClicked {
-            let feedModel = FeedViewController.FeedModel()
-            if let word = feedModel.check(word: self.textField.text ?? "") {
-                self.label.backgroundColor = .green
-            } else {
-                self.label.backgroundColor = .red
-                let alert = UIAlertController(title: "Error", message: "Word entered incorrectly", preferredStyle: .actionSheet)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                    self.present(alert, animated: true)
-            }
-        }
-        return button
-    }()
+    private lazy var checkGuessButton = CustomButton(title: "Check", bgColor: .cyan, action: checkGuessButtonPressed)
     
-    private lazy var firstButton: CustomButton = {
-        let button = CustomButton(buttonTitle: "Profile", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
-        button.whenButtonIsClicked {
-            let profileVC = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-            self.navigationController?.pushViewController(profileVC, animated: true)
-        }
-        return button
-    }()
+    private lazy var firstButton = CustomButton(title: "Profile", bgColor: .cyan, action: firstButtonPressed)
     
-    private lazy var secondButton: CustomButton = {
-        let button = CustomButton(buttonTitle: "Photos", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
-        button.whenButtonIsClicked {
-            let photosVC = PhotosViewController()
-            self.navigationController?.pushViewController(photosVC, animated: true)
-        }
-        return button
-    }()
+    private lazy var secondButton = CustomButton(title: "Photos", bgColor: .cyan, action: secondButtonPressed)
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -145,9 +117,31 @@ class FeedViewController: UIViewController {
         
     }
     
+    private func firstButtonPressed() {
+        let profileVC = ProfileViewController(user: User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    private func secondButtonPressed() {
+        let photosVC = PhotosViewController()
+        self.navigationController?.pushViewController(photosVC, animated: true)
+    }
+    
+    private func checkGuessButtonPressed() {
+        let feedModel = FeedViewController.FeedModel()
+        if let word = feedModel.check(word: textField.text ?? "") {
+            label.backgroundColor = .green
+        } else {
+            self.label.backgroundColor = .red
+            let alert = UIAlertController(title: "Error", message: "Word entered incorrectly", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+        }
+    }
+    
     private func setupBarButtonItem() {
         let barItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tap))
-        self.navigationItem.rightBarButtonItem = barItem
+        navigationItem.rightBarButtonItem = barItem
     }
     
     @objc private func tap() {

@@ -20,13 +20,7 @@ class InfoViewController: UIViewController {
         return label
     }()
     
-    private lazy var button: CustomButton = {
-        let button = CustomButton(buttonTitle: "Button", buttonTitleColor: .black, buttonBackgroundColor: .cyan)
-        button.whenButtonIsClicked {
-            self.present(self.alertController, animated: true, completion: nil)
-        }
-        return button
-    }()
+    private lazy var button = CustomButton(title: "Button", bgColor: .cyan, action: buttonPressed)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +57,10 @@ class InfoViewController: UIViewController {
         }
         alertController.addAction(action)
         alertController.addAction(action2)
+    }
+    
+    private func buttonPressed() {
+        self.present(self.alertController, animated: true, completion: nil)
     }
     
 }

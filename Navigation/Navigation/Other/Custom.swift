@@ -38,47 +38,33 @@ class BlueButton: UIButton {
     }
 }
 
-class CustomButton: UIButton {
-    var buttonTitle: String
-    var buttonTitleColor: UIColor
-    var buttonBackgroundColor: UIColor
-    var action: (() -> Void)?
+final class CustomButton: UIButton {
+    typealias Action = () -> Void
     
-    init(buttonTitle: String, buttonTitleColor: UIColor, buttonBackgroundColor: UIColor) {
-        self.buttonTitle = buttonTitle
-        self.buttonTitleColor = buttonTitleColor
-        self.buttonBackgroundColor = buttonBackgroundColor
+    var buttonAction: Action
+    
+    init(title: String, titleColor: UIColor = .black, bgColor: UIColor, action: @escaping Action) {
+        buttonAction = action
         super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func whenButtonIsClicked(action: @escaping () -> Void) {
-            self.action = action
-            self.addTarget(self, action: #selector(CustomButton.buttonTapped), for: .touchUpInside)
-        }
-
-        @objc func buttonTapped() {
-            action?()
-        }
-    
-    override func layoutSubviews() {
-             super.layoutSubviews()
-             setup()
-         }
-    
-    func setup() {
-        setTitle(buttonTitle, for: .normal)
-        setTitleColor(buttonTitleColor, for: .normal)
-        backgroundColor = buttonBackgroundColor
+        setTitle(title, for: .normal)
+        setTitleColor(titleColor, for: .normal)
+        backgroundColor = bgColor
         layer.cornerRadius = 12
         layer.shadowOffset = CGSize(width: 4, height: 4)
         layer.shadowRadius = 4
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.7
         translatesAutoresizingMaskIntoConstraints = false
+        addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    @objc private func buttonTapped() {
+        buttonAction()
     }
 }
 
