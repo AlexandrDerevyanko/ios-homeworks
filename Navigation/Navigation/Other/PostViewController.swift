@@ -31,8 +31,8 @@ class PostViewController: UIViewController {
     }
     
     @objc private func tap() {
-        let exampleController = InfoViewController()
-        navigationController?.present(exampleController, animated: true)
+//        let exampleController = InfoViewController()
+//        navigationController?.present(exampleController, animated: true)
     }
     
     private func setupUI() {

@@ -7,13 +7,13 @@
 
 import UIKit
 
-public var arrayOfPublications: [Post] = [publication1, publication2, publication3, publication4, publication5]
-
-public var publication1 = Post(author: "Corgi", description: "Some description", image: "1", likes: 143, views: 1421)
-public var publication2 = Post(author: "Corgi", description: "Some description", image: "2", likes: 150, views: 1831)
-public var publication3 = Post(author: "Corgi", description: "Some description", image: "3", likes: 258, views: 2638)
-public var publication4 = Post(author: "Corgi", description: "Some description", image: "4", likes: 122, views: 1500)
-public var publication5 = Post(author: "Corgi", description: "Some description", image: "5", likes: 118, views: 1823)
+public var arrayOfPublications: [Post] = [
+    Post(author: "Corgi", description: "Some description", image: "1", likes: 143, views: 1421),
+    Post(author: "Corgi", description: "Some description", image: "2", likes: 150, views: 1831),
+    Post(author: "Corgi", description: "Some description", image: "3", likes: 258, views: 2638),
+    Post(author: "Corgi", description: "Some description", image: "4", likes: 122, views: 1500),
+    Post(author: "Corgi", description: "Some description", image: "5", likes: 118, views: 1823)
+]
 
 public struct Post {
     public var author: String
