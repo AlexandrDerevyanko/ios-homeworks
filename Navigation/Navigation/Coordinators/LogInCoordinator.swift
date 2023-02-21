@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LogInCoordinator: ModuleCoordinatable {
+final class ProfileCoordinator: ModuleCoordinatable {
     let moduleType: Module.ModuleType
 
     private let factory: AppFactory
@@ -26,5 +26,10 @@ final class LogInCoordinator: ModuleCoordinatable {
         viewController.tabBarItem = moduleType.tabBarItem
         self.module = module
         return viewController
+    }
+    
+    func pushProfileViewController() {
+        let viewControllerToPush = ProfileViewController(user: User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine"))
+        (module?.view as? UINavigationController)?.pushViewController(viewControllerToPush, animated: true)
     }
 }
