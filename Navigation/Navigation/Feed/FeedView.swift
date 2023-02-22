@@ -8,8 +8,8 @@
 import UIKit
 
 protocol FeedViewDelegate: AnyObject {
-    func profileButtonPressed()
-    func photosButtonPressed()
+    func infoButtonPressed()
+    func postButtonPressed()
 }
 
 class FeedView: UIView {
@@ -55,8 +55,8 @@ class FeedView: UIView {
         return textField
     }()
     
-    private lazy var firstButton = CustomButton(title: "Profile", bgColor: .cyan, action: profileButtonPressed)
-    private lazy var secondButton = CustomButton(title: "Post", bgColor: .cyan, action: photosButtonPressed)
+    private lazy var infoButton = CustomButton(title: "Info", bgColor: .cyan, action: infoButtonPressed)
+    private lazy var postButton = CustomButton(title: "Post", bgColor: .cyan, action: postButtonPressed)
     private lazy var checkGuessButton = CustomButton(title: "Check", bgColor: .cyan, action: checkGuessButtonPressed)
     
     private let descriptionLabel: UILabel = {
@@ -73,8 +73,8 @@ class FeedView: UIView {
         addSubview(textField)
         addSubview(label)
         addSubview(checkGuessButton)
-        stackView.addArrangedSubview(firstButton)
-        stackView.addArrangedSubview(secondButton)
+        stackView.addArrangedSubview(infoButton)
+        stackView.addArrangedSubview(postButton)
         descriptionLabel.text = dataSource.description
         setupConstraints()
     }
@@ -98,11 +98,11 @@ class FeedView: UIView {
             stackView.topAnchor.constraint(equalTo: checkGuessButton.bottomAnchor, constant: 16),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            firstButton.widthAnchor.constraint(equalToConstant: 100),
-            firstButton.heightAnchor.constraint(equalToConstant: 40),
+            infoButton.widthAnchor.constraint(equalToConstant: 100),
+            infoButton.heightAnchor.constraint(equalToConstant: 40),
             
-            secondButton.widthAnchor.constraint(equalToConstant: 100),
-            secondButton.heightAnchor.constraint(equalToConstant: 40),
+            postButton.widthAnchor.constraint(equalToConstant: 100),
+            postButton.heightAnchor.constraint(equalToConstant: 40),
             
             label.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -112,12 +112,12 @@ class FeedView: UIView {
         
     }
     
-    func profileButtonPressed() {
-        delegate?.profileButtonPressed()
+    func infoButtonPressed() {
+        delegate?.infoButtonPressed()
     }
     
-    func photosButtonPressed() {
-        delegate?.photosButtonPressed()
+    func postButtonPressed() {
+        delegate?.postButtonPressed()
     }
     
     func checkGuessButtonPressed() {

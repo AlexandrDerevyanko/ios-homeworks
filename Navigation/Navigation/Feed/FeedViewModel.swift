@@ -12,8 +12,7 @@ protocol FeedViewModelProtocol: ViewModelProtocol{
 class FeedViewModel: FeedViewModelProtocol {
     
     enum ViewInput {
-        case profileButtonPressed
-        case photosButtonPressed
+        case postButtonPressed
         case infoButtonPressed
     }
     
@@ -22,9 +21,7 @@ class FeedViewModel: FeedViewModelProtocol {
     
     func buttonPressed(viewInput: ViewInput) {
         switch viewInput {
-        case .profileButtonPressed:
-            coordinator?.pushProfileViewController()
-        case .photosButtonPressed:
+        case .postButtonPressed:
             coordinator?.pushPostViewController()
         case .infoButtonPressed:
             coordinator?.pushInfoViewController()

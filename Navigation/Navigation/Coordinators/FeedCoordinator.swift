@@ -28,11 +28,6 @@ final class FeedCoordinator: ModuleCoordinatable {
         self.module = module
         return viewController
     }
-
-    func pushProfileViewController() {
-        let viewControllerToPush = ProfileViewController(viewModel: ProfileViewModel(), user: User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine"))
-        (module?.view as? UINavigationController)?.pushViewController(viewControllerToPush, animated: true)
-    }
     
     func pushPostViewController() {
         let viewControllerToPush = PostViewController()

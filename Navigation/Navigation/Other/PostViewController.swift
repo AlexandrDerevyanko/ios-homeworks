@@ -25,21 +25,10 @@ class PostViewController: UIViewController {
         setupUI()
     }
     
-    private func setupBarButtonItem() {
-        let baritem = UIBarButtonItem(image: UIImage(systemName: "folder"), style: .plain, target: self, action: #selector(tap))
-        self.navigationItem.rightBarButtonItem = baritem
-    }
-    
-    @objc private func tap() {
-//        let exampleController = InfoViewController()
-//        navigationController?.present(exampleController, animated: true)
-    }
-    
     private func setupUI() {
         view.addSubview(titleLabel)
         titleLabel.text = source.title
         setupConstraints()
-        setupBarButtonItem()
     }
 
     

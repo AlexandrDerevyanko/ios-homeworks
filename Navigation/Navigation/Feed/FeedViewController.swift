@@ -21,7 +21,6 @@ class FeedViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = feedView
-        setupBarButtonItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,25 +35,13 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
-
-    private func setupBarButtonItem() {
-        let barItem = UIBarButtonItem(image: UIImage(systemName: "info"), style: .plain, target: self, action: #selector(tap))
-        navigationItem.rightBarButtonItem = barItem
-    }
-    
-    @objc private func tap() {
-        infoButtonPressed()
-    }
     
 }
 
 extension FeedViewController: FeedViewDelegate {
-    func profileButtonPressed() {
-        viewModel.buttonPressed(viewInput: .profileButtonPressed)
-    }
     
-    func photosButtonPressed() {
-        viewModel.buttonPressed(viewInput: .photosButtonPressed)
+    func postButtonPressed() {
+        viewModel.buttonPressed(viewInput: .postButtonPressed)
     }
     
     func infoButtonPressed() {
