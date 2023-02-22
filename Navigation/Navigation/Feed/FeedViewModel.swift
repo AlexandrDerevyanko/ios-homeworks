@@ -25,7 +25,7 @@ class FeedViewModel: FeedViewModelProtocol {
         case .profileButtonPressed:
             coordinator?.pushProfileViewController()
         case .photosButtonPressed:
-            coordinator?.pushPhotosViewController()
+            coordinator?.pushPostViewController()
         case .infoButtonPressed:
             coordinator?.pushInfoViewController()
         }

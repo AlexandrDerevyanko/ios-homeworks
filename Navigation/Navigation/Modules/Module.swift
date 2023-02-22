@@ -12,7 +12,7 @@ protocol ViewModelProtocol: AnyObject {}
 struct Module {
     enum ModuleType {
         case feed
-        case logIn
+        case profile
     }
 
     let moduleType: ModuleType
@@ -25,7 +25,7 @@ extension Module.ModuleType {
         switch self {
         case .feed:
             return UITabBarItem(title: "Feed", image: UIImage(systemName: "list.bullet"), tag: 0)
-        case .logIn:
+        case .profile:
             return UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 1)
         }
     }

@@ -1,11 +1,15 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class ProfileViewController: UIViewController {
-    
+        
+    private let viewModel: ProfileViewModelProtocol
     var user: User
-    init(user: User) {
+    
+    init(viewModel: ProfileViewModelProtocol, user: User) {
+        self.viewModel = viewModel
         self.user = user
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,6 +34,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,10 +146,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let exampleController = PhotosViewController()
-                navigationController?.pushViewController(exampleController, animated: true)
+                collectionViewPressed()
             }
         }
+    }
+    
+}
+
+extension ProfileViewController {
+    
+    func collectionViewPressed() {
+        viewModel.pressed(viewInput: .collectionViewPressed)
     }
     
 }

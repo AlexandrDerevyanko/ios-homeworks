@@ -24,12 +24,13 @@ final class ProfileCoordinator: ModuleCoordinatable {
         let module = factory.makeModule(ofType: moduleType)
         let viewController = module.view
         viewController.tabBarItem = moduleType.tabBarItem
+        (module.viewModel as? ProfileViewModel)?.coordinator = self
         self.module = module
         return viewController
     }
     
-    func pushProfileViewController() {
-        let viewControllerToPush = ProfileViewController(user: User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine"))
+    func pushPhotosViewController() {
+        let viewControllerToPush = PhotosViewController()
         (module?.view as? UINavigationController)?.pushViewController(viewControllerToPush, animated: true)
     }
 }

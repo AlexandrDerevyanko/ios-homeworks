@@ -171,7 +171,7 @@ class LogInViewController: UIViewController {
                 
         if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
             let user = service.checkUser(with: logIn)
-            let profileVC = ProfileViewController(user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
+            let profileVC = ProfileViewController(viewModel: ProfileViewModel(), user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
             navigationController?.setViewControllers([profileVC], animated: true)
         } else {
             let alert = UIAlertController(title: "Unknown login or password", message: "Please, enter correct user login and password", preferredStyle: .alert)

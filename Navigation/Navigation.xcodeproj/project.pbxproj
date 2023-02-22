@@ -38,7 +38,8 @@
 		FFE8D3B6299FAC2E00FD9508 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3B5299FAC2E00FD9508 /* FeedView.swift */; };
 		FFE8D3B8299FB11300FD9508 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3B7299FB11300FD9508 /* FeedCoordinator.swift */; };
 		FFE8D3BC299FBC7B00FD9508 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3BB299FBC7B00FD9508 /* AppTabBarController.swift */; };
-		FFE8D3C329A33EDF00FD9508 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C229A33EDF00FD9508 /* LogInCoordinator.swift */; };
+		FFE8D3C329A33EDF00FD9508 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C229A33EDF00FD9508 /* ProfileCoordinator.swift */; };
+		FFE8D3C529A5217C00FD9508 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C429A5217C00FD9508 /* ProfileViewModel.swift */; };
 		FFFEF824291FC00D0025FB74 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF823291FC00D0025FB74 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +97,8 @@
 		FFE8D3B5299FAC2E00FD9508 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		FFE8D3B7299FB11300FD9508 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		FFE8D3BB299FBC7B00FD9508 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
-		FFE8D3C229A33EDF00FD9508 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		FFE8D3C229A33EDF00FD9508 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		FFE8D3C429A5217C00FD9508 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFFEF823291FC00D0025FB74 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FFFEF825291FCFD80025FB74 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,8 +155,8 @@
 		FF1D2B53295809C900D0E676 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				FFD64C492917DF090015F6B3 /* FeedViewController.swift */,
 				FFE8D3B3299FAB6F00FD9508 /* FeedViewModel.swift */,
+				FFD64C492917DF090015F6B3 /* FeedViewController.swift */,
 				FFE8D3B5299FAC2E00FD9508 /* FeedView.swift */,
 			);
 			path = Feed;
@@ -175,6 +177,7 @@
 			children = (
 				FF1D2B502958081800D0E676 /* Login */,
 				FFD64C4B2917DF250015F6B3 /* ProfileViewController.swift */,
+				FFE8D3C429A5217C00FD9508 /* ProfileViewModel.swift */,
 				FF31F41D29471712009C1461 /* ProfileTableHederView.swift */,
 				FF8FEDF22950679300D37BB9 /* PostTableViewCell.swift */,
 				FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */,
@@ -225,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				FFE8D383299F585A00FD9508 /* Coordinatable.swift */,
-				FFE8D3C229A33EDF00FD9508 /* LogInCoordinator.swift */,
+				FFE8D3C229A33EDF00FD9508 /* ProfileCoordinator.swift */,
 				FFE8D3B7299FB11300FD9508 /* FeedCoordinator.swift */,
 				FFE8D385299F590100FD9508 /* AppCoordinator.swift */,
 			);
@@ -404,9 +407,10 @@
 				FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */,
 				FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */,
 				FFE8D3B2299F9F2B00FD9508 /* Module.swift in Sources */,
-				FFE8D3C329A33EDF00FD9508 /* LogInCoordinator.swift in Sources */,
+				FFE8D3C329A33EDF00FD9508 /* ProfileCoordinator.swift in Sources */,
 				FFE8D3B6299FAC2E00FD9508 /* FeedView.swift in Sources */,
 				FF3EC6E6298B6729006D7A72 /* UserService.swift in Sources */,
+				FFE8D3C529A5217C00FD9508 /* ProfileViewModel.swift in Sources */,
 				FFD2BB2E29436EDD00EF3D5C /* Custom.swift in Sources */,
 				FF3EC6EA298B67C3006D7A72 /* PhotosViewController.swift in Sources */,
 				FFD64C4E291833880015F6B3 /* Feed.swift in Sources */,

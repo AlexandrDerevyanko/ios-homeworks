@@ -56,7 +56,7 @@ class FeedView: UIView {
     }()
     
     private lazy var firstButton = CustomButton(title: "Profile", bgColor: .cyan, action: profileButtonPressed)
-    private lazy var secondButton = CustomButton(title: "Photos", bgColor: .cyan, action: photosButtonPressed)
+    private lazy var secondButton = CustomButton(title: "Post", bgColor: .cyan, action: photosButtonPressed)
     private lazy var checkGuessButton = CustomButton(title: "Check", bgColor: .cyan, action: checkGuessButtonPressed)
     
     private let descriptionLabel: UILabel = {

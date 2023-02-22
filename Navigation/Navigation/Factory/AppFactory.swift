@@ -16,7 +16,7 @@ final class AppFactory {
             let viewModel = FeedViewModel()
             let view = UINavigationController(rootViewController: FeedViewController(viewModel: viewModel))
             return Module(moduleType: moduleType, viewModel: viewModel, view: view)
-        case .logIn:
+        case .profile:
             let logInVC = LogInViewController()
             logInVC.loginDelegate = MyLoginFactory().makeLoginInspector()
             let view = UINavigationController(rootViewController: logInVC)

@@ -7,12 +7,15 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
-class FirstSectionTableViewCell: UITableViewCell {
+class FirstSectionTableViewCell: UITableViewCell, ImageLibrarySubscriber {
 
     private enum Constants {
         static let numberOfItemsInLIne: CGFloat = 4
     }
+
+    var imageFacade = ImagePublisherFacade()
 
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -51,13 +54,14 @@ class FirstSectionTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .systemBackground
         setupView()
-//        collectionView.reloadData()
+        imageFacade.subscribe(self)
+        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupView() {
         backgroundColor = .systemBackground
         addSubview(collectionView)
@@ -124,5 +128,11 @@ extension FirstSectionTableViewCell: UICollectionViewDataSource, UICollectionVie
         return 8
 
     }
+    
+    func receive(images: [UIImage]) {
+        data = images
+        collectionView.reloadData()
+    }
+    
     
 }
