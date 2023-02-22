@@ -9,13 +9,11 @@ import UIKit
 import StorageService
 import iOSIntPackage
 
-class FirstSectionTableViewCell: UITableViewCell, ImageLibrarySubscriber {
+class FirstSectionTableViewCell: UITableViewCell {
 
     private enum Constants {
         static let numberOfItemsInLIne: CGFloat = 4
     }
-
-    var imageFacade = ImagePublisherFacade()
 
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -54,8 +52,6 @@ class FirstSectionTableViewCell: UITableViewCell, ImageLibrarySubscriber {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .systemBackground
         setupView()
-        imageFacade.subscribe(self)
-        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20)
     }
     
     required init?(coder: NSCoder) {
@@ -128,11 +124,5 @@ extension FirstSectionTableViewCell: UICollectionViewDataSource, UICollectionVie
         return 8
 
     }
-    
-    func receive(images: [UIImage]) {
-        data = images
-        collectionView.reloadData()
-    }
-    
     
 }
