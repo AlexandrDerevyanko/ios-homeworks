@@ -5,6 +5,17 @@ class LogInViewController: UIViewController {
     
     var loginDelegate: LoginViewControllerDelegate?
     
+    private let viewModel: LogInViewModelProtocol
+    
+    init(viewModel: LogInViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let point: UIView = {
         let point = UIView()
         point.backgroundColor = .lightGray
@@ -166,19 +177,7 @@ class LogInViewController: UIViewController {
     }
         
     @objc private func tapOnBlueButton() {
-        
-        let service = CurrentUserService()
-                
-        if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
-            let user = service.checkUser(with: logIn)
-            let profileVC = ProfileViewController(viewModel: ProfileViewModel(), user: user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: ""))
-            navigationController?.setViewControllers([profileVC], animated: true)
-        } else {
-            let alert = UIAlertController(title: "Unknown login or password", message: "Please, enter correct user login and password", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                self.present(alert, animated: true)
-        }
-        
+        pressed()
     }
         
     @objc private func forcedHidingKeyboard() {
@@ -188,3 +187,17 @@ class LogInViewController: UIViewController {
     
 }
 
+extension LogInViewController {
+    func pressed() {
+        let service = CurrentUserService()
+        if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
+            let user = service.checkUser(with: logIn)
+            viewModel.pressed(viewInput: .logInButtonPressed(user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: "")))
+        } else {
+            let alert = UIAlertController(title: "Unknown login or password", message: "Please, enter correct user login and password", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+        }
+        
+    }
+}

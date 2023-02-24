@@ -18,14 +18,17 @@ final class AppCoordinator: Coordinatable {
 
     func start() -> UIViewController {
         let feedCoordinator = FeedCoordinator(moduleType: .feed, factory: factory)
+        let logInCoordinator = LogInCoordinator(moduleType: .logIn, factory: factory)
         let profileCoordinator = ProfileCoordinator(moduleType: .profile, factory: factory)
 
         let appTabBarController = AppTabBarController(viewControllers: [
             feedCoordinator.start(),
+            logInCoordinator.start(),
             profileCoordinator.start()
         ])
 
         addChildCoordinator(feedCoordinator)
+        addChildCoordinator(logInCoordinator)
         addChildCoordinator(profileCoordinator)
 
         return appTabBarController

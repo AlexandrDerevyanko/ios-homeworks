@@ -11,7 +11,7 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    var imageProcessor = ImageProcessor.init()
+    var imageProcessor = ImageProcessor()
     
     private enum Constants {
         static let numberOfItemsInLIne: CGFloat = 3
@@ -38,14 +38,24 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
-        imageProcessor.processImagesOnThread(sourceImages: data as! [UIImage], filter: .chrome, qos: .default) { images in
-            data = images as! [UIImage]
+        let queue = DispatchQueue.global(qos: .default)
+        let workItem = DispatchWorkItem.init { [self] in
+            let startTime = Date()
+            imageProcessor.processImagesOnThread(sourceImages: data as! [UIImage], filter: .chrome, qos: .default) { images in
+                let CGImages = images
+                var UIImages: [UIImage?] = []
+                for index in CGImages {
+                    UIImages.append(UIImage(cgImage: index!))
+                    data = UIImages
+                }
+                let endTime = Date()
+                print(endTime.timeIntervalSince(startTime))
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        collectionView.reloadData()
+        queue.sync (execute: workItem)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
