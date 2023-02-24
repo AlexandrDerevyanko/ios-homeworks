@@ -41,7 +41,7 @@ class PhotosViewController: UIViewController {
         let queue = DispatchQueue.global(qos: .default)
         let workItem = DispatchWorkItem.init { [self] in
             let startTime = Date()
-            imageProcessor.processImagesOnThread(sourceImages: data as! [UIImage], filter: .chrome, qos: .default) { images in
+            imageProcessor.processImagesOnThread(sourceImages: data as? [UIImage] ?? [UIImage()], filter: .chrome, qos: .default) { images in
                 let CGImages = images
                 var UIImages: [UIImage?] = []
                 for index in CGImages {
