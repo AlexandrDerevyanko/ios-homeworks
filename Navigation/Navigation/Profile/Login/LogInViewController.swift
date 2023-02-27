@@ -72,7 +72,21 @@ class LogInViewController: UIViewController {
         return password
         }()
         
-    private let button: BlueButton = {
+    private let logInButton: BlueButton = {
+        let button = BlueButton()
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
+        button.layer.cornerRadius = 10
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let checkButton: BlueButton = {
         let button = BlueButton()
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
@@ -107,7 +121,8 @@ class LogInViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         scrollView.addSubview(logo)
-        scrollView.addSubview(button)
+        scrollView.addSubview(logInButton)
+//        scrollView.addSubview(checkButton)
         stackView.addArrangedSubview(logInTextFiled)
         stackView.addArrangedSubview(point)
         stackView.addArrangedSubview(passwordTextFiled)
@@ -116,7 +131,8 @@ class LogInViewController: UIViewController {
     }
         
     private func setupButton() {
-        button.addTarget(self, action: #selector(tapOnBlueButton), for: .touchUpInside)
+        logInButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
+        checkButton.addTarget(self, action: #selector(checkButtonPressed), for: .touchUpInside)
         }
         
     private func setupGestures() {
@@ -150,20 +166,41 @@ class LogInViewController: UIViewController {
             point.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             point.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
-            button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            button.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
-            button.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16)
+            logInButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
+            logInButton.heightAnchor.constraint(equalToConstant: 50),
+            logInButton.leftAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            logInButton.rightAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+            
+//            checkButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+//            checkButton.heightAnchor.constraint(equalToConstant: 50),
+//            checkButton.leftAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+//            checkButton.rightAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         
         ])
     }
+    
+//    func bruteForce(passwordToUnlock: String) {
+//        let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
+//
+//        var password: String = ""
+//
+//        // Will strangely ends at 0000 instead of ~~~
+//        while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
+//            password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+//            // Your stuff here
+////            print(password)
+//            // Your stuff here
+//        }
+//
+//        print(password)
+//    }
         
     @objc private func didShowKeyboard(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboeardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboeardRectangle.height
                 
-            let loginButtonBottomPointY = self.button.frame.origin.y + self.button.frame.height
+            let loginButtonBottomPointY = self.logInButton.frame.origin.y + self.logInButton.frame.height
             let keyboardOriginY = self.view.frame.height - keyboardHeight
                 
             let yOffset = keyboardOriginY < loginButtonBottomPointY ? loginButtonBottomPointY - keyboardOriginY + 16 : 0
@@ -176,8 +213,12 @@ class LogInViewController: UIViewController {
         self.forcedHidingKeyboard()
     }
         
-    @objc private func tapOnBlueButton() {
+    @objc private func logInButtonPressed() {
         pressed()
+    }
+    
+    @objc private func checkButtonPressed() {
+//        bruteForce(passwordToUnlock: "1234")
     }
         
     @objc private func forcedHidingKeyboard() {
@@ -201,3 +242,48 @@ extension LogInViewController {
         
     }
 }
+
+
+//extension String {
+//    var digits:      String { return "0123456789" }
+//    var lowercase:   String { return "abcdefghijklmnopqrstuvwxyz" }
+//    var uppercase:   String { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
+//    var punctuation: String { return "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" }
+//    var letters:     String { return lowercase + uppercase }
+//    var printable:   String { return digits + letters + punctuation }
+//
+//
+//
+//    mutating func replace(at index: Int, with character: Character) {
+//        var stringArray = Array(self)
+//        stringArray[index] = character
+//        self = String(stringArray)
+//    }
+//}
+//
+//func indexOf(character: Character, _ array: [String]) -> Int {
+//    return array.firstIndex(of: String(character))!
+//}
+//
+//func characterAt(index: Int, _ array: [String]) -> Character {
+//    return index < array.count ? Character(array[index])
+//                               : Character("")
+//}
+//
+//func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
+//    var str: String = string
+//
+//    if str.count <= 0 {
+//        str.append(characterAt(index: 0, array))
+//    }
+//    else {
+//        str.replace(at: str.count - 1,
+//                    with: characterAt(index: (indexOf(character: str.last!, array) + 1) % array.count, array))
+//
+//        if indexOf(character: str.last!, array) == 0 {
+//            str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
+//        }
+//    }
+//
+//    return str
+//}
