@@ -210,7 +210,6 @@ class LogInViewController: UIViewController {
                 self.passwordTextFiled.text = password
                 self.passwordTextFiled.isSecureTextEntry = false
             }
-            print(password)
         }
         queue.async (execute: workItem)
     }
