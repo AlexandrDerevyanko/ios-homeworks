@@ -68,6 +68,7 @@ class LogInViewController: UIViewController {
         password.placeholder = "Password"
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
+//        password.rightViewMode = UITextField.ViewMode.always
         password.translatesAutoresizingMaskIntoConstraints = false
         return password
         }()
@@ -86,9 +87,9 @@ class LogInViewController: UIViewController {
         return button
     }()
     
-    private let checkButton: BlueButton = {
+    private let bruteButton: BlueButton = {
         let button = BlueButton()
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Password guessing", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
         button.layer.cornerRadius = 10
@@ -98,6 +99,13 @@ class LogInViewController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private let indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .gray
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
     }()
         
     deinit {
@@ -122,7 +130,9 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(stackView)
         scrollView.addSubview(logo)
         scrollView.addSubview(logInButton)
-//        scrollView.addSubview(checkButton)
+        scrollView.addSubview(bruteButton)
+//        scrollView.addSubview(indicator)
+        passwordTextFiled.addSubview(indicator)
         stackView.addArrangedSubview(logInTextFiled)
         stackView.addArrangedSubview(point)
         stackView.addArrangedSubview(passwordTextFiled)
@@ -132,7 +142,7 @@ class LogInViewController: UIViewController {
         
     private func setupButton() {
         logInButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
-        checkButton.addTarget(self, action: #selector(checkButtonPressed), for: .touchUpInside)
+        bruteButton.addTarget(self, action: #selector(bruteButtonPressed), for: .touchUpInside)
         }
         
     private func setupGestures() {
@@ -168,32 +178,42 @@ class LogInViewController: UIViewController {
             
             logInButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.leftAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            logInButton.rightAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+            logInButton.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
+            logInButton.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
             
-//            checkButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
-//            checkButton.heightAnchor.constraint(equalToConstant: 50),
-//            checkButton.leftAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-//            checkButton.rightAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
+            bruteButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            bruteButton.heightAnchor.constraint(equalToConstant: 50),
+            bruteButton.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
+            bruteButton.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
+            
+            indicator.centerYAnchor.constraint(equalTo: passwordTextFiled.centerYAnchor),
+            indicator.trailingAnchor.constraint(equalTo: passwordTextFiled.trailingAnchor, constant: -16)
         
         ])
     }
     
-//    func bruteForce(passwordToUnlock: String) {
-//        let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
-//
-//        var password: String = ""
-//
-//        // Will strangely ends at 0000 instead of ~~~
-//        while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
-//            password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
-//            // Your stuff here
-////            print(password)
-//            // Your stuff here
-//        }
-//
-//        print(password)
-//    }
+    func bruteForce(passwordToUnlock: String) {
+        let queue = DispatchQueue.global(qos: .background)
+        let workItem = DispatchWorkItem.init { [self] in
+            let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
+            
+            var password: String = ""
+            
+            while password != passwordToUnlock {
+                password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+                DispatchQueue.main.async {
+                    self.indicator.startAnimating()
+                }
+            }
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+                self.passwordTextFiled.text = password
+                self.passwordTextFiled.isSecureTextEntry = false
+            }
+            print(password)
+        }
+        queue.async (execute: workItem)
+    }
         
     @objc private func didShowKeyboard(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -214,11 +234,11 @@ class LogInViewController: UIViewController {
     }
         
     @objc private func logInButtonPressed() {
-        pressed()
+        logInButttonPressedViewModel()
     }
     
-    @objc private func checkButtonPressed() {
-//        bruteForce(passwordToUnlock: "1234")
+    @objc private func bruteButtonPressed() {
+        bruteForce(passwordToUnlock: "1234")
     }
         
     @objc private func forcedHidingKeyboard() {
@@ -229,7 +249,7 @@ class LogInViewController: UIViewController {
 }
 
 extension LogInViewController {
-    func pressed() {
+    func logInButttonPressedViewModel() {
         let service = CurrentUserService()
         if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
             let user = service.checkUser(with: logIn)
@@ -241,49 +261,10 @@ extension LogInViewController {
         }
         
     }
+    
+    func brutButtonPressedViewModel() {
+        
+    }
 }
 
 
-//extension String {
-//    var digits:      String { return "0123456789" }
-//    var lowercase:   String { return "abcdefghijklmnopqrstuvwxyz" }
-//    var uppercase:   String { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
-//    var punctuation: String { return "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" }
-//    var letters:     String { return lowercase + uppercase }
-//    var printable:   String { return digits + letters + punctuation }
-//
-//
-//
-//    mutating func replace(at index: Int, with character: Character) {
-//        var stringArray = Array(self)
-//        stringArray[index] = character
-//        self = String(stringArray)
-//    }
-//}
-//
-//func indexOf(character: Character, _ array: [String]) -> Int {
-//    return array.firstIndex(of: String(character))!
-//}
-//
-//func characterAt(index: Int, _ array: [String]) -> Character {
-//    return index < array.count ? Character(array[index])
-//                               : Character("")
-//}
-//
-//func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
-//    var str: String = string
-//
-//    if str.count <= 0 {
-//        str.append(characterAt(index: 0, array))
-//    }
-//    else {
-//        str.replace(at: str.count - 1,
-//                    with: characterAt(index: (indexOf(character: str.last!, array) + 1) % array.count, array))
-//
-//        if indexOf(character: str.last!, array) == 0 {
-//            str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
-//        }
-//    }
-//
-//    return str
-//}

@@ -33,7 +33,6 @@ class InfoViewController: UIViewController {
         view.addSubview(button)
         titleLabel.text = source.title
         setupConstraints()
-//        setupAlertConfiguration()
     }
     
     private func setupConstraints() {
@@ -47,17 +46,6 @@ class InfoViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
-//    private func setupAlertConfiguration() {
-//        let action = UIAlertAction(title: "OK", style: .default) {_ in
-//            print("Bye")
-//        }
-//        let action2 = UIAlertAction(title: "Cancel", style: .cancel) {_ in
-//            print("Bye")
-//        }
-//        alertController.addAction(action)
-//        alertController.addAction(action2)
-//    }
     
     private func buttonPressed() {
         let alert = UIAlertController(title: "Hello world", message: "Message", preferredStyle: .alert)

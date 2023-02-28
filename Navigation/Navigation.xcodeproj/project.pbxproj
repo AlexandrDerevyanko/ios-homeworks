@@ -42,6 +42,7 @@
 		FFE8D3C529A5217C00FD9508 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C429A5217C00FD9508 /* ProfileViewModel.swift */; };
 		FFE8D3C829A8A1CE00FD9508 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C729A8A1CE00FD9508 /* LogInCoordinator.swift */; };
 		FFE8D3CA29A8A25100FD9508 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8D3C929A8A25100FD9508 /* LogInViewModel.swift */; };
+		FFFA3A1129ACF76700CB0957 /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFA3A1029ACF76700CB0957 /* BruteForce.swift */; };
 		FFFEF824291FC00D0025FB74 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEF823291FC00D0025FB74 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		FFE8D3C429A5217C00FD9508 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFE8D3C729A8A1CE00FD9508 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		FFE8D3C929A8A25100FD9508 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		FFFA3A1029ACF76700CB0957 /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		FFFEF823291FC00D0025FB74 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FFFEF825291FCFD80025FB74 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				FFD2BB2B2943450A00EF3D5C /* LogInViewController.swift */,
 				FF3EC6E5298B6729006D7A72 /* UserService.swift */,
 				FFE8D3C929A8A25100FD9508 /* LogInViewModel.swift */,
+				FFFA3A1029ACF76700CB0957 /* BruteForce.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -210,6 +213,8 @@
 		FFD64C162916EC6E0015F6B3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				FFD2BB2829408E9600EF3D5C /* Profile */,
+				FF1D2B53295809C900D0E676 /* Feed */,
 				FFE8D3CB29A8BB3700FD9508 /* Photos */,
 				FFE8D3BD29A003B800FD9508 /* Info */,
 				FFE8D3BA299FBC6000FD9508 /* TabBar */,
@@ -217,8 +222,6 @@
 				FFE8D3AB299F9B5100FD9508 /* Factory */,
 				FF1D2B522958095A00D0E676 /* App */,
 				FFE8D382299F57E000FD9508 /* Coordinators */,
-				FF1D2B53295809C900D0E676 /* Feed */,
-				FFD2BB2829408E9600EF3D5C /* Profile */,
 				FF1D2B512958094700D0E676 /* Other */,
 				FFD64C202916EC6F0015F6B3 /* Assets.xcassets */,
 				FFD64C222916EC6F0015F6B3 /* LaunchScreen.storyboard */,
@@ -418,6 +421,7 @@
 				FFD64C182916EC6E0015F6B3 /* AppDelegate.swift in Sources */,
 				FFE8D386299F590100FD9508 /* AppCoordinator.swift in Sources */,
 				FFE8D3AD299F9B6800FD9508 /* AppFactory.swift in Sources */,
+				FFFA3A1129ACF76700CB0957 /* BruteForce.swift in Sources */,
 				FFE8D3B8299FB11300FD9508 /* FeedCoordinator.swift in Sources */,
 				FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */,
 				FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */,
