@@ -16,15 +16,12 @@ final class AppFactory {
             let viewModel = FeedViewModel()
             let view = UINavigationController(rootViewController: FeedViewController(viewModel: viewModel))
             return Module(moduleType: moduleType, viewModel: viewModel, view: view)
-        case .logIn:
+        case .profile:
             let viewModel = LogInViewModel()
             let loginVC = LogInViewController(viewModel: viewModel)
             loginVC.loginDelegate = MyLoginFactory().makeLoginInspector()
             let view = UINavigationController(rootViewController: loginVC)
-            return Module(moduleType: moduleType, viewModel: viewModel, view: view)
-        case .profile:
-            let viewModel = ProfileViewModel()
-            let view = UINavigationController(rootViewController: ProfileViewController(viewModel: viewModel, user: User(logIn: "Corgi", fullName: "Corgi Kevin", avatar: UIImage(named: "1") ?? UIImage(), status: "I'm fine")))
+            view.isNavigationBarHidden = true
             return Module(moduleType: moduleType, viewModel: viewModel, view: view)
         }
     }

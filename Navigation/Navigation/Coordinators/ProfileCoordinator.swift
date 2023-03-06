@@ -1,8 +1,8 @@
 //
-//  FeedViewCoordinator.swift
+//  LogInCoordinator.swift
 //  Navigation
 //
-//  Created by Aleksandr Derevyanko on 20.02.2023.
+//  Created by Aleksandr Derevyanko on 24.02.2023.
 //
 
 import UIKit
@@ -24,9 +24,22 @@ final class ProfileCoordinator: ModuleCoordinatable {
         let module = factory.makeModule(ofType: moduleType)
         let viewController = module.view
         viewController.tabBarItem = moduleType.tabBarItem
-        (module.viewModel as? ProfileViewModel)?.coordinator = self
+        (module.viewModel as? LogInViewModel)?.coordinator = self
         self.module = module
         return viewController
+    }
+    
+    func pushProfileViewController(forUser user: User) {
+        
+        let profileModule = { [self] in
+            let viewModel = ProfileViewModel()
+            let view = ProfileViewController(viewModel: viewModel, user: user)
+            return Module(moduleType: moduleType, viewModel: viewModel, view: view)
+        }
+        let module = profileModule()
+        (module.viewModel as? ProfileViewModel)?.coordinator = self
+        let viewController = module.view
+        (self.module?.view as? UINavigationController)?.pushViewController(viewController, animated: true)
     }
     
     func pushPhotosViewController() {

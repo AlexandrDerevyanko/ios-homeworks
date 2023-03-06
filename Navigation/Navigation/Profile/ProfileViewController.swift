@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         tableView.reloadData()
+        timer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +69,24 @@ class ProfileViewController: UIViewController {
         ])
     }
     
+    private func timer() {
+        var runCount = 0
+        var timeInterval = 5
+        
+        Timer.scheduledTimer(
+            withTimeInterval: TimeInterval(timeInterval),
+            repeats: true
+        ) { timer in
+            let alert = UIAlertController(title: "Attention", message: "You are in the application for more than \(timeInterval) seconds in a row", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true)
+
+            runCount += 1
+            if runCount == 2 {
+                timer.invalidate()
+            }
+        }
+    }
 }
 
 

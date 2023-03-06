@@ -15,11 +15,12 @@ class LogInViewModel: LogInViewModelProtocol {
         case logInButtonPressed(User)
     }
     
-    weak var coordinator: LogInCoordinator?
+    weak var coordinator: ProfileCoordinator?
     
     func pressed(viewInput: ViewInput) {
         switch viewInput {
         case let .logInButtonPressed(user):
+            print(user)
             coordinator?.pushProfileViewController(forUser: user)
         }
     }

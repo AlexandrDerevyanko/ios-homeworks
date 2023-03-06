@@ -5,7 +5,6 @@
 //  Created by Aleksandr Derevyanko on 17.02.2023.
 //
 
-import Foundation
 import UIKit
 
 protocol Coordinatable: AnyObject {

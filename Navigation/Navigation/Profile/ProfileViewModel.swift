@@ -7,6 +7,7 @@
 
 protocol ProfileViewModelProtocol: ViewModelProtocol{
     func pressed(viewInput: ProfileViewModel.ViewInput)
+    func backgroundView(viewInput: ProfileViewModel.BackgroundViewInput)
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
@@ -15,12 +16,23 @@ class ProfileViewModel: ProfileViewModelProtocol {
         case collectionViewPressed
     }
     
+    enum BackgroundViewInput {
+        case timer
+    }
+    
     weak var coordinator: ProfileCoordinator?
     
     func pressed(viewInput: ViewInput) {
         switch viewInput {
         case .collectionViewPressed:
             coordinator?.pushPhotosViewController()
+        }
+    }
+    
+    func backgroundView(viewInput: BackgroundViewInput) {
+        switch viewInput {
+        case .timer:
+            print("1")
         }
     }
 
