@@ -13,6 +13,7 @@
 		FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */; };
 		FF3EC6EA298B67C3006D7A72 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6E9298B67C3006D7A72 /* PhotosViewController.swift */; };
 		FF3EC6EC298B68A1006D7A72 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3EC6EB298B68A1006D7A72 /* PhotosCollectionViewCell.swift */; };
+		FF7B457F29B6F5BC002C4369 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B457E29B6F5BC002C4369 /* Error.swift */; };
 		FF8D39B22983C19E002995D1 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8D39B12983C19E002995D1 /* StorageService.docc */; };
 		FF8D39B32983C19E002995D1 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8D39B02983C19E002995D1 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8D39B62983C19E002995D1 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8D39AE2983C19E002995D1 /* StorageService.framework */; };
@@ -75,6 +76,7 @@
 		FF3EC6E7298B678B006D7A72 /* FirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionTableViewCell.swift; sourceTree = "<group>"; };
 		FF3EC6E9298B67C3006D7A72 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		FF3EC6EB298B68A1006D7A72 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF7B457E29B6F5BC002C4369 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		FF8D39AE2983C19E002995D1 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8D39B02983C19E002995D1 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		FF8D39B12983C19E002995D1 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		FF7B457D29B6F5B0002C4369 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B457E29B6F5BC002C4369 /* Error.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		FF8D39AF2983C19E002995D1 /* StorageService */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +221,7 @@
 		FFD64C162916EC6E0015F6B3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B457D29B6F5B0002C4369 /* Errors */,
 				FFD2BB2829408E9600EF3D5C /* Profile */,
 				FF1D2B53295809C900D0E676 /* Feed */,
 				FFE8D3CB29A8BB3700FD9508 /* Photos */,
@@ -422,6 +433,7 @@
 				FFE8D3B8299FB11300FD9508 /* FeedCoordinator.swift in Sources */,
 				FFD64C4A2917DF090015F6B3 /* FeedViewController.swift in Sources */,
 				FF3EC6E8298B678B006D7A72 /* FirstSectionTableViewCell.swift in Sources */,
+				FF7B457F29B6F5BC002C4369 /* Error.swift in Sources */,
 				FFE8D3B2299F9F2B00FD9508 /* Module.swift in Sources */,
 				FFE8D3CA29A8A25100FD9508 /* LogInViewModel.swift in Sources */,
 				FFE8D3B6299FAC2E00FD9508 /* FeedView.swift in Sources */,
