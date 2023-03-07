@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
     private let logInTextFiled: TextFieldWithPadding = {
         let logIn = TextFieldWithPadding()
         logIn.tag = 0
+        logIn.text = "Corgi"
         logIn.textColor = .black
         logIn.backgroundColor = .systemGray6
         logIn.font = UIFont.systemFont(ofSize: 16)
@@ -62,13 +63,13 @@ class LogInViewController: UIViewController {
     private let passwordTextFiled: TextFieldWithPadding = {
         let password = TextFieldWithPadding()
         password.tag = 1
+        password.text = "1234"
         password.textColor = .black
         password.backgroundColor = .systemGray6
         password.font = UIFont.systemFont(ofSize: 16)
         password.placeholder = "Password"
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
-//        password.rightViewMode = UITextField.ViewMode.always
         password.translatesAutoresizingMaskIntoConstraints = false
         return password
         }()
@@ -85,27 +86,6 @@ class LogInViewController: UIViewController {
         button.layer.shadowOpacity = 0.7
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }()
-    
-    private let bruteButton: BlueButton = {
-        let button = BlueButton()
-        button.setTitle("Password guessing", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(red: 72/255, green: 133/255, blue: 204/255, alpha: 1)
-        button.layer.cornerRadius = 10
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.7
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.color = .gray
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
     }()
         
     deinit {
@@ -130,9 +110,6 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(stackView)
         scrollView.addSubview(logo)
         scrollView.addSubview(logInButton)
-        scrollView.addSubview(bruteButton)
-//        scrollView.addSubview(indicator)
-        passwordTextFiled.addSubview(indicator)
         stackView.addArrangedSubview(logInTextFiled)
         stackView.addArrangedSubview(point)
         stackView.addArrangedSubview(passwordTextFiled)
@@ -142,7 +119,6 @@ class LogInViewController: UIViewController {
         
     private func setupButton() {
         logInButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
-        bruteButton.addTarget(self, action: #selector(bruteButtonPressed), for: .touchUpInside)
         }
         
     private func setupGestures() {
@@ -180,38 +156,8 @@ class LogInViewController: UIViewController {
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
             logInButton.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
-            
-            bruteButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
-            bruteButton.heightAnchor.constraint(equalToConstant: 50),
-            bruteButton.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16),
-            bruteButton.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16),
-            
-            indicator.centerYAnchor.constraint(equalTo: passwordTextFiled.centerYAnchor),
-            indicator.trailingAnchor.constraint(equalTo: passwordTextFiled.trailingAnchor, constant: -16)
         
         ])
-    }
-    
-    func bruteForce(passwordToUnlock: String) {
-        let queue = DispatchQueue.global(qos: .background)
-        let workItem = DispatchWorkItem.init { [self] in
-            let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
-            
-            var password: String = ""
-            
-            while password != passwordToUnlock {
-                password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
-                DispatchQueue.main.async {
-                    self.indicator.startAnimating()
-                }
-            }
-            DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                self.passwordTextFiled.text = password
-                self.passwordTextFiled.isSecureTextEntry = false
-            }
-        }
-        queue.async (execute: workItem)
     }
         
     @objc private func didShowKeyboard(_ notification: Notification) {
@@ -235,10 +181,6 @@ class LogInViewController: UIViewController {
     @objc private func logInButtonPressed() {
         logInButttonPressedViewModel()
     }
-    
-    @objc private func bruteButtonPressed() {
-        bruteForce(passwordToUnlock: "1234")
-    }
         
     @objc private func forcedHidingKeyboard() {
         self.view.endEditing(true)
@@ -248,22 +190,33 @@ class LogInViewController: UIViewController {
 }
 
 extension LogInViewController {
+    
     func logInButttonPressedViewModel() {
-        let service = CurrentUserService()
-        if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
-            let user = service.checkUser(with: logIn)
-            viewModel.pressed(viewInput: .logInButtonPressed(user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: "")))
-        } else {
+        
+        do {
+            try logIn()
+        }
+        catch CustomError.invalidPassword {
             let alert = UIAlertController(title: "Unknown login or password", message: "Please, enter correct user login and password", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
         }
-        
+        catch {
+            let alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+        }
     }
     
-    func brutButtonPressedViewModel() {
-        
+    func logIn() throws {
+        let service = CurrentUserService()
+
+        if let logIn = loginDelegate?.check(logIn: logInTextFiled.text ?? "", password: passwordTextFiled.text ?? "") {
+            let user = service.checkUser(with: logIn)
+            viewModel.pressed(viewInput: .logInButtonPressed(user ?? User(logIn: "", fullName: "", avatar: UIImage(), status: "")))
+        } else {
+            throw CustomError.invalidPassword
+        }
     }
+    
 }
-
-

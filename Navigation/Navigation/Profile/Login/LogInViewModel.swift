@@ -20,7 +20,6 @@ class LogInViewModel: LogInViewModelProtocol {
     func pressed(viewInput: ViewInput) {
         switch viewInput {
         case let .logInButtonPressed(user):
-            print(user)
             coordinator?.pushProfileViewController(forUser: user)
         }
     }

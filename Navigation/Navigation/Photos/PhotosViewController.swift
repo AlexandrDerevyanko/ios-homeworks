@@ -38,29 +38,50 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
-        let queue = DispatchQueue.global(qos: .default)
-        let workItem = DispatchWorkItem.init { [self] in
-            let startTime = Date()
-            imageProcessor.processImagesOnThread(sourceImages: data as? [UIImage] ?? [UIImage()], filter: .chrome, qos: .default) { images in
-                let CGImages = images
-                var UIImages: [UIImage?] = []
-                for index in CGImages {
-                    UIImages.append(UIImage(cgImage: index!))
-                    data = UIImages
-                }
-                let endTime = Date()
-                print(endTime.timeIntervalSince(startTime))
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+        imageFiltered(urlString: "") { result in
+            switch result {
+            case .success(let message):
+                print("\(message)")
+            case .failure(let error):
+                print(error)
             }
         }
-        queue.sync (execute: workItem)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         collectionView.reloadData()
+    }
+    
+    private func imageFiltered(
+        urlString: String,
+        completion: @escaping (Result<String, ImagesError>) -> Void) {
+            
+            guard URL(string: urlString) != nil else {
+                completion(.failure(.badURL))
+                return
+            }
+            
+            let queue = DispatchQueue.global(qos: .default)
+            let workItem = DispatchWorkItem.init { [self] in
+                let startTime = Date()
+                imageProcessor.processImagesOnThread(sourceImages: data as? [UIImage] ?? [UIImage()], filter: .chrome, qos: .default) { images in
+                    let CGImages = images
+                    var UIImages: [UIImage?] = []
+                    for index in CGImages {
+                        UIImages.append(UIImage(cgImage: index!))
+                        data = UIImages
+                    }
+                    let endTime = Date()
+                    print(endTime.timeIntervalSince(startTime))
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                        completion(.success("Filters applied"))
+                    }
+                }
+            }
+            queue.sync (execute: workItem)
+            
     }
     
     private func setupNavigationBar() {

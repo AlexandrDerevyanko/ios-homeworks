@@ -21,7 +21,6 @@ final class AppFactory {
             let loginVC = LogInViewController(viewModel: viewModel)
             loginVC.loginDelegate = MyLoginFactory().makeLoginInspector()
             let view = UINavigationController(rootViewController: loginVC)
-            view.isNavigationBarHidden = true
             return Module(moduleType: moduleType, viewModel: viewModel, view: view)
         }
     }

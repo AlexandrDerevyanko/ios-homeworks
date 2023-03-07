@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,13 +71,13 @@ class ProfileViewController: UIViewController {
     }
     
     private func timer() {
-        var timeInterval = 5
+        let timeInterval = 3600
         
         Timer.scheduledTimer(
             withTimeInterval: TimeInterval(timeInterval),
             repeats: false
         ) { timer in
-            let alert = UIAlertController(title: "Attention", message: "You are in the application for more than \(timeInterval) seconds in a row", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Attention", message: "You are in the application for more than one hour", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default))
             self.present(alert, animated: true)
         }
@@ -126,8 +127,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         } else if indexPath.section == 1 {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SecondSectionCell", for: indexPath) as? PostTableViewCell else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
-                return cell
+                preconditionFailure("Error")
             }
             
             let post = arrayOfPublications[indexPath.row]

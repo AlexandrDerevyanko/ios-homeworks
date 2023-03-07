@@ -28,3 +28,8 @@ extension CustomError: LocalizedError {
         }
     }
 }
+
+enum ImagesError: Error {
+    case badURL
+    case unexpected
+}
